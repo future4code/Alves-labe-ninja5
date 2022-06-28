@@ -8,7 +8,7 @@ export default class Home extends React.Component {
 
   state = {
 
-    paginaAtual: "tela-inicial",
+    paginaAtual: "tela-detalhe",
     // paginaAtual: "tela-cadastro",
     // paginaAtual: "tela-carrinho",
     carrinho: [],
@@ -66,11 +66,7 @@ export default class Home extends React.Component {
     return (
 
       <div>
-        <TelaCarrinho
-        valorTotal={this.state.valorTotal}
-        itensDoCarrinho={this.state.carrinho}
-        onCLick={this.removerItemDoCarrinho}
-        />
+       
         {this.procuraPagina()}
       </div>
     );

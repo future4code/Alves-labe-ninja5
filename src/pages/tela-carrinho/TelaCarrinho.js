@@ -14,6 +14,11 @@ export default class TelaCarrinho extends React.Component {
             })
         return (
             <ConjuntoDoCarrinho>
+                <TelaCarrinho>
+                    valorTotal={this.state.valorTotal}
+                    itensDoCarrinho={this.state.carrinho}
+                    onCLick={this.removerItemDoCarrinho}
+                </TelaCarrinho>
                 <h2>Carrinho</h2>
                 <div>{itens}</div>
                 <p>Valor total: R$ {this.props.valorTotal},00</p>
