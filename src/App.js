@@ -8,7 +8,9 @@ import TelaCarrinho from "./pages/tela-carrinho/TelaCarrinho"
 export default class App extends React.Component {
 
   state = {
+
     paginaAtual: "tela-cadastro"
+
   }
 
   procuraPagina = () => {
