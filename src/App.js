@@ -8,7 +8,7 @@ import TelaCarrinho from "./pages/tela-carrinho/TelaCarrinho"
 export default class App extends React.Component {
 
   state = {
-    paginaAtual: "tela-detalhe"
+    paginaAtual: "tela-inicial"
   }
 
   procuraPagina = () => {
@@ -17,6 +17,7 @@ export default class App extends React.Component {
         return <TelaInicial 
           goToTelaCadastro={this.goToTelaCadastro} 
           goToTelaServicos={this.goToTelaServicos} 
+          goToTelaCarrinho={this.goToTelaCarrinho}
           />
 
       case "tela-cadastro":
