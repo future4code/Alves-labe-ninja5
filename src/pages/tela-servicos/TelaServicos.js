@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { InputsPai } from "./styled"
+import BASE_URL from "../../constantes/BASE_URL"
+import axios from 'axios'
 
 export default class TelaServicos extends Component {
 
@@ -24,9 +26,26 @@ export default class TelaServicos extends Component {
     this.setState({ buscaNome: event.target.value })
   }
 
+  getAllJobs = () => {
+    axios.get(`${BASE_URL}/jobs`, {
 
+      headers: {
+        Authorization: "28d01bab-b426-4bdd-ba33-cf26427fc293"
+      }
+    })
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
+  }
+  
 
   render() {
+
+
     return (
       <InputsPai>
         <div>
