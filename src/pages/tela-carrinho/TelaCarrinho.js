@@ -1,7 +1,7 @@
 import React from "react";
 import { Item } from "./ConjuntoDeItens";
 import { ConjuntoDoCarrinho } from './styled'
-export class TelaCarrinho extends React.Component {
+export default class TelaCarrinho extends React.Component {
     render() {
         const itens =
             this.props.itensdoCarrinho &&
