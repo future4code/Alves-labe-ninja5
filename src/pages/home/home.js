@@ -7,21 +7,17 @@ import TelaCadastro from "../tela-cadastro/TelaCadastro"
 export default class Home extends React.Component {
 
   state = {
-
-    paginaAtual: "tela-cadastro",
-    // paginaAtual: "tela-cadastro",
-    // paginaAtual: "tela-carrinho",
-    carrinho: [],
-    valorTotal: 0
+    paginaAtual: "tela-inicial"
   }
 
   procuraPagina = () => {
     switch (this.state.paginaAtual) {
       case "tela-inicial":
-        return <TelaInicial
-          goToTelaCadastro={this.goToTelaCadastro}
-          goToTelaServicos={this.goToTelaServicos}
-        />
+        return <TelaInicial 
+          goToTelaCadastro={this.goToTelaCadastro} 
+          goToTelaServicos={this.goToTelaServicos} 
+          goToTelaCarrinho={this.goToTelaCarrinho}
+          />
 
       case "tela-cadastro":
         return <TelaCadastro />
@@ -33,10 +29,7 @@ export default class Home extends React.Component {
         return <TelaDetalhe />
 
       case "tela-carrinho":
-        return <TelaCarrinho
-          carrinho={this.state.carrinho}
-          valorTotal={this.state.valorTotal}
-        />
+        return <TelaCarrinho />
 
       default:
         return "Erro ao Encontrar pagina"
