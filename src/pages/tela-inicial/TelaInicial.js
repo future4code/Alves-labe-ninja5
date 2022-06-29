@@ -3,7 +3,6 @@ import * as C from "./styled"
 
 export default class TelaInicial extends Component {
 
-
     render() {
         return (
             <C.Body>
