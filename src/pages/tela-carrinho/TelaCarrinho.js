@@ -1,7 +1,11 @@
 import React from "react";
 import { Item } from "./ConjuntoDeItens";
-import { ConjuntoDoCarrinho } from './styled'
+import { ConjuntoDoCarrinho, Carrinho } from './styled'
 export default class TelaCarrinho extends React.Component {
+
+    removerItemDoCarrinho = (itemParaRemover) => {
+        console.log(itemParaRemover)
+    }
     render() {
         const itens =
             this.props.itensdoCarrinho &&
@@ -13,16 +17,18 @@ export default class TelaCarrinho extends React.Component {
                 />
             })
         return (
-            <ConjuntoDoCarrinho>
-                <TelaCarrinho>
-                    valorTotal={this.state.valorTotal}
-                    itensDoCarrinho={this.state.carrinho}
-                    onCLick={this.removerItemDoCarrinho}
-                </TelaCarrinho>
-                <h2>Carrinho</h2>
-                <div>{itens}</div>
-                <p>Valor total: R$ {this.props.valorTotal},00</p>
-            </ConjuntoDoCarrinho>
+            <div>
+                <Carrinho
+                    valorTotal={this.props.valorTotal}
+                    itensDoCarrinho={this.props.carrinho}
+                    onClick={this.removerItemDoCarrinho}
+                />
+                <ConjuntoDoCarrinho>
+                    <h2>Carrinho</h2>
+                    <div>{itens}</div>
+                    <p>Valor total: R$ {this.props.valorTotal},00</p>
+                </ConjuntoDoCarrinho>
+            </div>
         )
     }
 }

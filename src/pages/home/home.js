@@ -8,7 +8,7 @@ export default class Home extends React.Component {
 
   state = {
 
-    paginaAtual: "tela-detalhe",
+    paginaAtual: "tela-cadastro",
     // paginaAtual: "tela-cadastro",
     // paginaAtual: "tela-carrinho",
     carrinho: [],
@@ -19,9 +19,9 @@ export default class Home extends React.Component {
     switch (this.state.paginaAtual) {
       case "tela-inicial":
         return <TelaInicial
-          goToTelaCadastro={this.goToTelaCadastro} 
-          goToTelaServicos={this.goToTelaServicos} 
-          />
+          goToTelaCadastro={this.goToTelaCadastro}
+          goToTelaServicos={this.goToTelaServicos}
+        />
 
       case "tela-cadastro":
         return <TelaCadastro />
@@ -33,7 +33,10 @@ export default class Home extends React.Component {
         return <TelaDetalhe />
 
       case "tela-carrinho":
-        return <TelaCarrinho />
+        return <TelaCarrinho 
+        carrinho={this.state.carrinho}
+        valorTotal={this.state.valorTotal}
+        />
 
       default:
         return "Erro ao Encontrar pagina"
@@ -66,7 +69,7 @@ export default class Home extends React.Component {
     return (
 
       <div>
-       
+
         {this.procuraPagina()}
       </div>
     );
