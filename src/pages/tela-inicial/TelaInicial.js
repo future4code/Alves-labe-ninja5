@@ -1,24 +1,36 @@
 import React, { Component } from 'react'
+import Header from "../../components/header/Header"
+import Footer from '../../components/footer/Footer'
 import * as C from "./styled"
 
 export default class TelaInicial extends Component {
 
+
+
+    state = { 
+        goToTelaCarrinho: this.props.goToTelaCarrinho
+
+    }
+
+
     render() {
         return (
-            <C.Body>
-                <C.Container>
-                    {/* <div>
-                        <p>Seja bem vindo ao Labeninjas. O site onde você encontra e oferece
-                            todos os tipos de serviços. Para contratar clique em "Contratar Serviço"</p>
-                    </div> */}
+            <>
+                <Header goToTelaCarrinho={this.state.goToTelaCarrinho}  />
+                <C.Body>
 
-                    <div>
-                        <C.Button onClick={this.props.goToTelaServicos}>Contratar Serviço</C.Button>
-                        <C.Button onClick={this.props.goToTelaCadastro}>Cadastrar Serviço</C.Button>
-                    </div>
+                    <C.Container>
 
-                </C.Container>
-            </C.Body>
+                        <div>
+                            <C.Button onClick={this.props.goToTelaServicos}>Contratar Serviço</C.Button>
+                            <C.Button onClick={this.props.goToTelaCadastro}>Cadastrar Serviço</C.Button>
+                        </div>
+
+                    </C.Container>
+               
+                </C.Body>
+                <Footer />
+            </>
         )
     }
 }

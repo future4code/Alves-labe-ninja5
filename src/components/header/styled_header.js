@@ -13,9 +13,15 @@ export const Header = styled.div`
 export const ImagemLogo = styled.img`
   width: 30px;
   margin: 0px 0px 0px 20px;
+  &:hover{
+    cursor:pointer;
+  }
 `
 
 export const ImagemCarrinho = styled.img`
   width: 30px;
   margin: 0px 20px 0px 0px;
+  &:hover{
+    cursor:pointer;
+  }
 `
