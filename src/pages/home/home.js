@@ -26,7 +26,10 @@ export default class Home extends React.Component {
         return <TelaServicos />
 
       case "tela-detalhe":
-        return <TelaDetalhe />
+        return <TelaDetalhe
+          goToTelaInicial={this.goToTelaInicial}
+          goToTelaCarrinho={this.goToTelaCarrinho}
+        />
 
       case "tela-carrinho":
         return <TelaCarrinho />

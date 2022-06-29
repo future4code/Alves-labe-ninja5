@@ -12,7 +12,10 @@ export default class Teladetalhes extends Component {
     return (
       <Body>
 
-        <Header />
+        <Header 
+          goToTelaInicial={this.props.goToTelaInicial}
+          goToTelaCarrinho={this.props.goToTelaCarrinho}
+        />
 
         <Container>
           <Formulario>
