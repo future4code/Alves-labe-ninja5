@@ -33,9 +33,9 @@ export default class Home extends React.Component {
         return <TelaDetalhe />
 
       case "tela-carrinho":
-        return <TelaCarrinho 
-        carrinho={this.state.carrinho}
-        valorTotal={this.state.valorTotal}
+        return <TelaCarrinho
+          carrinho={this.state.carrinho}
+          valorTotal={this.state.valorTotal}
         />
 
       default:
@@ -77,6 +77,3 @@ export default class Home extends React.Component {
   }
 
 }
-
-
-

@@ -5,10 +5,13 @@ import * as C from "./styled"
 
 export default class TelaInicial extends Component {
 
+
+
     state = { 
         goToTelaCarrinho: this.props.goToTelaCarrinho
 
     }
+
 
     render() {
         return (
