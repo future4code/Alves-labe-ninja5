@@ -1,1 +1,1 @@
-const BASE_URL = "https://labeninjas.herokuapp.com"
+export const BASE_URL = "https://labeninjas.herokuapp.com"

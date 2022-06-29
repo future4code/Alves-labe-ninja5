@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { InputsPai } from "./styled"
-import BASE_URL from "../../constantes/BASE_URL"
+import {BASE_URL} from "../../constantes/BASE_URL"
 import axios from 'axios'
 
 export default class TelaServicos extends Component {
@@ -39,7 +39,6 @@ export default class TelaServicos extends Component {
     .catch((err) => {
       console.log(err)
     })
-
   }
   
 

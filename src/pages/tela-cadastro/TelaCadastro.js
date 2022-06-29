@@ -1,58 +1,18 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-import styled from 'styled-components'
-
-
-const ParteDeCima = styled.header`
-background-color: #dbd6ee;
-margin: 0;
-`
-const Tudo = styled.div`
-display: grid;
-grid-template-rows: 60px 1fr 60px;
-width: 100vw;
-height: 100vh;
-
-`
-const PardeDeBaixo = styled.footer`
-background-color: #dbd6ee;
-`
-const ParteCentral = styled.div`
-display: flex;
-justify-content: center;
-`
-const Card = styled.section`
-background-color: #8878c7;
-justify-content: center;
-justify-items: center;
-align-items: center;
-width: 35%;
-margin-top: 15px;
-margin-bottom: 20px;
-border-radius: 20px;
-`
-const FormaDePagamento = styled.select`
-display: block;
-margin-bottom: 15px;
-
-`
-
-const Botao = styled.button`
-background-color: #dbd6ee;
-font-size: 15px;
-display: block;
-`
-const Input = styled.input`
-margin-bottom: 15px;
-width: 60%;
-`
+import { BASE_URL } from "../../constantes/BASE_URL"
+import Header from "../../components/header/Header"
+import Footer from "../../components/footer/Footer"
+import * as C from "./styled"
 
 export class TelaCadastro extends Component {
+
   state = {
+    jobs: [],
     title: "",
     description: "",
     price: "",
-    paymentMethods: "",
+    paymentMethods: [],
     dueDate: "",
   }
 
@@ -65,60 +25,104 @@ export class TelaCadastro extends Component {
   chamarPrice = (event) => {
     this.setState({ price: event.target.value })
   }
+
   chamarPaymentMethods = (event) => {
-    this.setState({ title: event.target.value })
+    this.setState ({paymentMethods: [...this.state.paymentMethods, event.target.value]})
   }
+
   chamardueDate = (event) => {
     this.setState({ dueDate: event.target.value })
   }
 
-  fazerCadastrp = () => {
-    const url = "https://labeninjas.herokuapp.com"
-    
-  }
+  criarCadastro = () => {
+
+    const novoJob = {
+
+      title: this.state.title,
+      description: this.state.description,
+      price: Number(this.state.price),
+      paymentMethods: this.state.paymentMethods,
+      dueDate: this.state.dueDate
+    }
 
 
 
+    axios.post(
+
+
+      `${BASE_URL}/jobs`, novoJob,
+      {
+        headers: {
+          Authorization: "e2190c39-7930-4db4-870b-bed0e5e4b88e"
+        }
+      }
+    )
+      .then((res) => {
+        this.setState({ jobs: res.data })
+        alert("Serviço cadastrado com sucesso")
+      
+      })
+      .catch((erro) => {
+        console.log(erro.response.data);
+        console.log(this.state.paymentMethods)
+      });
+
+
+  };
 
   render() {
+
+    console.log(this.state.jobs)
+
     return (
-      <Tudo>
-        <ParteDeCima>
-        </ParteDeCima>
-        <ParteCentral>
-            <Card>
+      <C.Tudo>
+
+        <Header />
+
+        <C.ParteCentral>
+          <C.Card>
             <h2>Cadastrar serviço</h2>
-            <Input
-              type="text"
-              placeholder={"Titulo"}
+            <C.Input
+              onChange={this.chamarTitle}
+              placeholder="Titulo"
             >
-            </Input>
-            <Input
-              type="text"
+            </C.Input>
+            <C.Input
+              onChange={this.chamarDescription}
               placeholder={"Descrição"}
             >
-            </Input>
-            <Input
-              type="number"
+            </C.Input>
+            <C.Input
+              type='number'
+              onChange={this.chamarPrice}
               placeholder={"Preço"}
             >
-            </Input>
+            </C.Input>
             <form>
               <label for="data-prazo"></label>
-              <input type="date" id="data-prazo" name='data-prazo'></input>
+              <input onChange={this.chamardueDate} type="date" id="data-prazo" name='data-prazo'></input>
             </form>
-            <FormaDePagamento>
-              <option>Cartão de crédito</option>
-              <option>Boleto</option>
-              <option>Pix</option>
-            </FormaDePagamento>
-            <Botao>cadastrar</Botao>
-            </Card>
-        </ParteCentral>
-        <PardeDeBaixo>
-          <h2>Fim</h2>
-        </PardeDeBaixo>
-      </Tudo>
+
+            <form action="">
+              <input value="cartao-de-credito" type='checkbox' onChange={this.chamarPaymentMethods}></input>
+                <label for="cartao-de-credito">Cartão de crédito</label>
+
+
+              <input value="boleto" type='checkbox' onChange={this.chamarPaymentMethods}></input>
+                <label for="boleto">Boleto</label>
+              
+
+              <input value="pix" type='checkbox' onChange={this.chamarPaymentMethods}></input>
+                <label for="pix">Pix</label>
+            </form>
+
+            <C.Botao type='submit' onClick={this.criarCadastro}>cadastrar</C.Botao>
+          </C.Card>
+        </C.ParteCentral>
+
+        <Footer />
+
+      </C.Tudo>
     )
   }
 }
