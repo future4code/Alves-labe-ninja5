@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-import { DivPai, BuscaNome, DivFiltros, CampoInput, SelectOrdenar, OptionOrdenar, Legend } from "./styled"
+import { BuscaNome, DivFiltros, CampoInput, SelectOrdenar, OptionOrdenar, Body, Cards, Lista} from "./styled"
 import BASE_URL from "../../constantes/BASE_URL"
 import axios from 'axios'
-import Header from '../../components/header/Header'
-import Footer from '../../components/footer/Footer'
+
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
+import Card from '../../components/card_servicos/Card';
+
 export default class TelaServicos extends Component {
 
   state = {
@@ -46,17 +49,18 @@ export default class TelaServicos extends Component {
   render() {
 
     return (
-      <div>
+      <Body>
+
         <Header />
-        <DivPai>
+
+        <DivFiltros>
           <BuscaNome
             type="text"
             onChange={this.onPrecoMinimo}
             value={this.state.precoMinimo}
             placeholder="Buscar"
           />
-        </DivPai>
-        <DivFiltros>
+
           <fieldset>
             <legend>Odenar por:</legend>
             <SelectOrdenar>
@@ -85,7 +89,23 @@ export default class TelaServicos extends Component {
             />
           </fieldset>
         </DivFiltros>
-      </div >
+
+        <Cards>
+          <Lista>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </Lista>
+        </Cards>
+
+        <Footer/>
+
+      </Body >
     )
   }
 }
