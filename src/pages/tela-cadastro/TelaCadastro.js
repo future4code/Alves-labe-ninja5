@@ -1,12 +1,11 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 
 
-const ParteDeCima = styled.header`
-background-color: #dbd6ee;
-margin: 0;
-`
+
 const Tudo = styled.div`
 display: grid;
 grid-template-rows: 60px 1fr 60px;
@@ -14,27 +13,27 @@ width: 100vw;
 height: 100vh;
 
 `
-const PardeDeBaixo = styled.footer`
-background-color: #dbd6ee;
-`
+
+
 const ParteCentral = styled.div`
 display: flex;
 justify-content: center;
 `
 const Card = styled.section`
+display: block;
 background-color: #8878c7;
 justify-content: center;
 justify-items: center;
 align-items: center;
-width: 35%;
+width: 375px;
 margin-top: 15px;
 margin-bottom: 20px;
 border-radius: 20px;
 `
 const FormaDePagamento = styled.select`
 display: block;
-margin-bottom: 15px;
-
+margin-bottom: 18px;
+margin-top: 18px;
 `
 
 const Botao = styled.button`
@@ -43,8 +42,14 @@ font-size: 15px;
 display: block;
 `
 const Input = styled.input`
-margin-bottom: 15px;
+margin-bottom: 18px;
 width: 60%;
+`
+const TituloCard = styled.h2`
+color: white;
+`
+const Form = styled.form`
+
 `
 
 export class TelaCadastro extends Component {
@@ -73,24 +78,53 @@ export class TelaCadastro extends Component {
   }
 
   fazerCadastrp = () => {
-    const url = "https://labeninjas.herokuapp.com"
+    const url = "https://labeninjas.herokuapp.com/" //  Precisa completar lógica esperando a url e o authorization
+    const body = {
+      title: this.state.title,
+      description: this.state.description,
+      price: this.state.price,
+      paymentMethods: this.state.paymentMethods,
+      dueDate: this.state.dueDate
+    }
+    axios.post(url,body, {
+      headers: {
+        Authorization: ""
+  
+      }
+  
+     })
+     .then ((res) => {
+      alert("Serviço cadrastado com sucesso!")
+      this.setState({title: "", description: "", price: "", paymentMethods: "",dueDate: "", }) // limpa os campos para poder cadrastrar outra pessoa depois
+     })
+  
+  
+     .catch ((err) => {
+      alert(err.response.data.message)
+  
+     })
+  
+
     
   }
 
-
+//Obs: Atualizar data para o formato internacional 
+//Obs: A estilização precisa ser ajeitada 
+//Obs: A parte lógica está esperando autorização e os imputs e os valores.
+//Obs: O h2 tem que ser branco mas quanto estiliza ele fica estranho e junta tudo
 
 
   render() {
     return (
       <Tudo>
-        <ParteDeCima>
-        </ParteDeCima>
+        <Header />
         <ParteCentral>
             <Card>
-            <h2>Cadastrar serviço</h2>
+            <TituloCard>Cadastrar serviço</TituloCard>
             <Input
               type="text"
               placeholder={"Titulo"}
+                
             >
             </Input>
             <Input
@@ -103,24 +137,25 @@ export class TelaCadastro extends Component {
               placeholder={"Preço"}
             >
             </Input>
-            <form>
+            <Form>
               <label for="data-prazo"></label>
               <input type="date" id="data-prazo" name='data-prazo'></input>
-            </form>
+            </Form> 
             <FormaDePagamento>
               <option>Cartão de crédito</option>
               <option>Boleto</option>
               <option>Pix</option>
             </FormaDePagamento>
             <Botao>cadastrar</Botao>
+           
             </Card>
         </ParteCentral>
-        <PardeDeBaixo>
-          <h2>Fim</h2>
-        </PardeDeBaixo>
+        < Footer/>
+
       </Tudo>
     )
   }
 }
 
 export default TelaCadastro
+
