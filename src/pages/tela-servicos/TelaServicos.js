@@ -49,9 +49,13 @@ export default class TelaServicos extends Component {
   render() {
 
     return (
+
       <Body>
 
-        <Header />
+        <Header
+          goToTelaInicial={this.props.goToTelaInicial}
+          goToTelaCarrinho={this.props.goToTelaCarrinho}
+        />
 
         <DivFiltros>
           <BuscaNome
