@@ -6,7 +6,7 @@ import facebook from './../../assets/img/img_footer/facebook.png';
 import twitter from './../../assets/img/img_footer/twitter.png';
 import youtube from './../../assets/img/img_footer/youtube.png';
 
-export default class Header_ extends Component {
+export default class Footer_ extends Component {
   render() {
     return(
       <Footer>
