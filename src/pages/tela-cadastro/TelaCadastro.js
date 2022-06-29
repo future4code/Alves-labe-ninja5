@@ -117,7 +117,10 @@ export class TelaCadastro extends Component {
   render() {
     return (
       <Tudo>
-        <Header />
+        <Header 
+          goToTelaInicial={this.props.goToTelaInicial}
+          goToTelaCarrinho={this.props.goToTelaInicial}   
+        />
         <ParteCentral>
             <Card>
             <TituloCard>Cadastrar serviço</TituloCard>
