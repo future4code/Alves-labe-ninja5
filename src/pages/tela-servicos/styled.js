@@ -51,10 +51,6 @@ export const Body = styled.div`
     box-sizing: border-box;
 `
 
-export const Cards = styled.div`
-  /* border: solid 3px red; */
-`
-
 export const Lista = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
