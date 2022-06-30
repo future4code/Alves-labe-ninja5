@@ -19,8 +19,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 35%;
-margin-top: 4%;
-margin-bottom: 4%;
+height: 400px;
+margin-top: 15px;
 border-radius: 20px;
 `
 export const FormaDePagamento = styled.input`
