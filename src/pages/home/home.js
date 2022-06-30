@@ -13,20 +13,30 @@ export default class Home extends React.Component {
   procuraPagina = () => {
     switch (this.state.paginaAtual) {
       case "tela-inicial":
-        return <TelaInicial 
-          goToTelaCadastro={this.goToTelaCadastro} 
-          goToTelaServicos={this.goToTelaServicos} 
+        return <TelaInicial
+          goToTelaCadastro={this.goToTelaCadastro}
+          goToTelaServicos={this.goToTelaServicos}
           goToTelaCarrinho={this.goToTelaCarrinho}
-          />
+        />
 
       case "tela-cadastro":
-        return <TelaCadastro />
+        return <TelaCadastro
+          goToTelaInicial={this.goToTelaInicial}
+          goToTelaCarrinho={this.goToTelaInicial}  
+        />
+
 
       case "tela-servicos":
-        return <TelaServicos />
+        return <TelaServicos
+          goToTelaInicial={this.goToTelaInicial}
+          goToTelaCarrinho={this.goToTelaCarrinho}
+        />
 
       case "tela-detalhe":
-        return <TelaDetalhe />
+        return <TelaDetalhe
+          goToTelaInicial={this.goToTelaInicial}
+          goToTelaCarrinho={this.goToTelaCarrinho}
+        />
 
       case "tela-carrinho":
         return <TelaCarrinho />

@@ -45,10 +45,7 @@ export class TelaCadastro extends Component {
       dueDate: this.state.dueDate
     }
 
-
-
     axios.post(
-
 
       `${BASE_URL}/jobs`, novoJob,
       {
@@ -68,6 +65,14 @@ export class TelaCadastro extends Component {
       });
 
 
+    
+  }
+
+//Obs: Atualizar data para o formato internacional 
+//Obs: A estilização precisa ser ajeitada 
+//Obs: A parte lógica está esperando autorização e os imputs e os valores.
+//Obs: O h2 tem que ser branco mas quanto estiliza ele fica estranho e junta tudo
+
   };
 
   render() {
@@ -75,6 +80,7 @@ export class TelaCadastro extends Component {
     console.log(this.state.jobs)
 
     return (
+
       <C.Tudo>
 
         <Header />
@@ -82,22 +88,26 @@ export class TelaCadastro extends Component {
         <C.ParteCentral>
           <C.Card>
             <h2>Cadastrar serviço</h2>
+            
             <C.Input
               onChange={this.chamarTitle}
               placeholder="Titulo"
-            >
+             >
             </C.Input>
+            
             <C.Input
               onChange={this.chamarDescription}
               placeholder={"Descrição"}
             >
             </C.Input>
+            
             <C.Input
               type='number'
               onChange={this.chamarPrice}
               placeholder={"Preço"}
             >
             </C.Input>
+            
             <form>
               <label for="data-prazo"></label>
               <input onChange={this.chamardueDate} type="date" id="data-prazo" name='data-prazo'></input>
@@ -117,14 +127,17 @@ export class TelaCadastro extends Component {
             </form>
 
             <C.Botao type='submit' onClick={this.criarCadastro}>cadastrar</C.Botao>
+            
           </C.Card>
         </C.ParteCentral>
 
         <Footer />
 
       </C.Tudo>
+      
     )
   }
 }
 
 export default TelaCadastro
+

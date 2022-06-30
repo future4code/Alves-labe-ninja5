@@ -33,48 +33,88 @@ export default class TelaServicos extends Component {
         Authorization: "28d01bab-b426-4bdd-ba33-cf26427fc293"
       }
     })
-    .then((res) => {
-      console.log(res.data)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
-  
 
   render() {
 
-
     return (
-      <InputsPai>
-        <div>
-          Filtro Mínimo:
-          <input
-            type="number"
-            onChange={this.onPrecoMinimo}
-            value={this.state.precoMinimo}
-            placeholder="Valor Mínimo"
-            />
-        </div>
-        <div>
-          Filtro Máximo:
-          <input
-            type="number"
-            onChange={this.onPrecoMaximo}
-            value={this.state.precoMaximo} 
-            placeholder="Valor Máximo"
-            />
-        </div>
-        <div>
-          Busca por Nome:
-          <input
-            type="search"
+
+      <Body>
+
+        <Header
+          goToTelaInicial={this.props.goToTelaInicial}
+          goToTelaCarrinho={this.props.goToTelaCarrinho}
+        />
+        
+        <SectionBuscar>
+          <BuscaNome
+            type="text"
             onChange={this.onBuscaNome}
             value={this.state.buscaNome}
-            placeholder="Buscar Nome"
-            />
-        </div>
-      </InputsPai>
+            placeholder="Buscar"
+          />
+        </SectionBuscar>
+
+        <DivFiltros>
+          <SectionFiltro>
+
+            <FieldsetInput>
+              <Legend>Ordenar por:</Legend>
+              <SelectOrdenar>
+                <OptionOrdenar>Preço Crescente</OptionOrdenar>
+                <OptionOrdenar>Preço Decrescente</OptionOrdenar>
+                <OptionOrdenar>Título</OptionOrdenar>
+                <OptionOrdenar>Prazo</OptionOrdenar>
+              </SelectOrdenar>
+            </FieldsetInput>
+
+            <FieldsetInput>
+              <Legend>Valor Mínimo</Legend>
+              <CampoInput
+                type="number"
+                onChange={this.onPrecoMaximo}
+                value={this.state.precoMaximo}
+              />
+            </FieldsetInput>
+
+            <FieldsetInput>
+              <Legend>Valor Máximo</Legend>
+              <Cifrao>
+                <p>R$</p>
+                <CampoInput
+                  type="number"
+                  onChange={this.onPrecoMinimo}
+                  value={this.state.precoMinimo}
+                />
+              </Cifrao>
+            </FieldsetInput>
+
+          </SectionFiltro>
+
+        </DivFiltros>
+
+        <Cards>
+          <Lista>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </Lista>
+        </Cards>
+
+        <Footer />
+
+      </Body >
     )
   }
 }
