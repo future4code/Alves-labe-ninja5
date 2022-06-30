@@ -11,7 +11,8 @@ export default class TelaServicos extends Component {
   state = {
     precoMinimo: "",
     precoMaximo: "",
-    buscaNome: ""
+    buscaNome: "",
+    ordenacao: 1
   }
 
   onPrecoMinimo = (event) => {
@@ -29,22 +30,30 @@ export default class TelaServicos extends Component {
     this.setState({ buscaNome: event.target.value })
   }
 
-  getAllJobs = () => {
-    axios.get(`${BASE_URL}/jobs`, {
-
-      headers: {
-        Authorization: "28d01bab-b426-4bdd-ba33-cf26427fc293"
-      }
-    })
-      .then((res) => {
-        console.log(res.data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+  atualizaOrdenacao = (event) => {
+    this.setState({ ordenacao: event.target.value })
   }
 
+  // getAllJobs = () => {
+  //   axios.get(`${BASE_URL}/jobs`, {
+
+  //     headers: {
+  //       Authorization: "28d01bab-b426-4bdd-ba33-cf26427fc293"
+  //     }
+  //   })
+  //     .then((res) => {
+  //       console.log(res.data)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
+
+
+
   render() {
+
+
     return (
 
       <Body>
@@ -68,9 +77,12 @@ export default class TelaServicos extends Component {
 
             <FieldsetInput>
               <Legend>Ordenar por:</Legend>
-              <SelectOrdenar>
-                <OptionOrdenar>Preço Crescente</OptionOrdenar>
-                <OptionOrdenar>Preço Decrescente</OptionOrdenar>
+              <SelectOrdenar
+                value={this.ordenacao}
+                onChange={this.atualizaOrdenacao}
+              >
+                <OptionOrdenar value={1}>Preço Crescente</OptionOrdenar>
+                <OptionOrdenar value={-1}>Preço Decrescente</OptionOrdenar>
                 <OptionOrdenar>Título</OptionOrdenar>
                 <OptionOrdenar>Prazo</OptionOrdenar>
               </SelectOrdenar>
@@ -78,15 +90,6 @@ export default class TelaServicos extends Component {
 
             <FieldsetInput>
               <Legend>Valor Mínimo</Legend>
-              <CampoInput
-                type="number"
-                onChange={this.onPrecoMaximo}
-                value={this.state.precoMaximo}
-              />
-            </FieldsetInput>
-
-            <FieldsetInput>
-              <Legend>Valor Máximo</Legend>
               <Cifrao>
                 <p>R$</p>
                 <CampoInput
@@ -97,13 +100,33 @@ export default class TelaServicos extends Component {
               </Cifrao>
             </FieldsetInput>
 
+            <FieldsetInput>
+              <Legend>Valor Máximo</Legend>
+              <Cifrao>
+                <p>R$</p>
+                <CampoInput
+                  type="number"
+                  onChange={this.onPrecoMaximo}
+                  value={this.state.precoMaximo}
+                />
+              </Cifrao>
+            </FieldsetInput>
+
           </SectionFiltro>
 
         </DivFiltros>
 
         <Lista>
 
-          {this.props.listaJobs.map((job) => {
+          {this.props.listaJobs.filter((job) => {
+            return this.state.precoMinimo === "" || job.price >= this.state.precoMinimo
+          }).filter((job) => {
+            return this.state.precoMaximo === "" || job.price <= this.state.precoMaximo
+          }).filter((job) => {
+            return job.title.toLowerCase().includes(this.state.buscaNome.toLowerCase())
+          }).sort((currentJob, nextJob) => {
+            return this.state.ordenacao * (currentJob.price - nextJob.price)
+          }).map(job => {
             return (
               <Card
                 goToTelaDetalhe={this.props.goToTelaDetalhe}
@@ -112,7 +135,9 @@ export default class TelaServicos extends Component {
                 preco={job.price}
               />
             )
-          })}
+
+          })
+          }
 
         </Lista>
 

@@ -16,7 +16,7 @@ export default class Home extends React.Component {
 
   pegaJobs = () =>{
     // const url = 
-    axios.get("https://labeninjas.herokuapp.com/jobs", 
+    axios.get(`${BASE_URL}/jobs`, 
       {
         headers: {
           Authorization: "e2190c39-7930-4db4-870b-bed0e5e4b88e"
