@@ -17,6 +17,7 @@ export const Titulo = styled.p`
 `
 export const Prazo = styled.p`
   margin: 5px 0px 10px 0px;
+  font-size: 18px;
 `
 export const LinhaBaixo = styled.div`
   display: flex;
