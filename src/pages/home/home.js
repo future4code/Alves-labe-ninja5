@@ -4,12 +4,37 @@ import TelaServicos from "../tela-servicos/TelaServicos";
 import TelaDetalhe from "../tela-detalhe/TelaDetalhe";
 import TelaCarrinho from "../tela-carrinho/TelaCarrinho";
 import TelaCadastro from "../tela-cadastro/TelaCadastro"
+import axios from "axios";
+import { BASE_URL } from "../../constantes/BASE_URL";
+
 export default class Home extends React.Component {
 
   state = {
-    paginaAtual: "tela-inicial"
+    paginaAtual: "tela-inicial",
+    listaJobs: []
   }
 
+  pegaJobs = () =>{
+    // const url = 
+    axios.get("https://labeninjas.herokuapp.com/jobs", 
+      {
+        headers: {
+          Authorization: "e2190c39-7930-4db4-870b-bed0e5e4b88e"
+        }
+    })
+    .then((res)=>{
+      console.log("entrou em res")
+      // console.log(res.data.jobs)
+      console.log(typeof(res.data.jobs))
+      
+      this.setState({listaJobs: res.data.jobs})
+    })
+    .catch((erro)=>{
+      console.log("entrou no erro")
+      console.log(erro)
+    })
+  }
+  
   procuraPagina = () => {
     switch (this.state.paginaAtual) {
       case "tela-inicial":
@@ -31,6 +56,7 @@ export default class Home extends React.Component {
           goToTelaInicial={this.goToTelaInicial}
           goToTelaCarrinho={this.goToTelaCarrinho}
           goToTelaDetalhe={this.goToTelaDetalhe}
+          listaJobs={this.state.listaJobs}
         />
 
       case "tela-detalhe":
@@ -58,6 +84,7 @@ export default class Home extends React.Component {
 
   goToTelaServicos = () => {
     this.setState({ paginaAtual: "tela-servicos" })
+    this.pegaJobs()
   }
 
   goToTelaDetalhe = () => {

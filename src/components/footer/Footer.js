@@ -29,5 +29,5 @@ export default class Header_ extends Component {
       </SigamNos>
     </Footer>
     )
-  }
+  } 
 }

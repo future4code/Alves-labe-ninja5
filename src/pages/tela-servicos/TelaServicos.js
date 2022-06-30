@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Body, Cards, DivFiltros, SectionBuscar, BuscaNome, CampoInput, SelectOrdenar, OptionOrdenar, Lista, SectionFiltro, Legend, FieldsetInput, Cifrao } from "./styled"
+import { Body, DivFiltros, SectionBuscar, BuscaNome, CampoInput, SelectOrdenar, OptionOrdenar, Lista, SectionFiltro, Legend, FieldsetInput, Cifrao } from "./styled"
 import { BASE_URL } from "../../constantes/BASE_URL"
 import axios from 'axios'
 import Header from '../../components/header/Header'
@@ -45,7 +45,6 @@ export default class TelaServicos extends Component {
   }
 
   render() {
-
     return (
 
       <Body>
@@ -102,18 +101,20 @@ export default class TelaServicos extends Component {
 
         </DivFiltros>
 
-        <Cards>
-          <Lista>
-            <Card goToTelaDetalhe={this.props.goToTelaDetalhe}/>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </Lista>
-        </Cards>
+        <Lista>
+
+          {this.props.listaJobs.map((job) => {
+            return (
+              <Card
+                goToTelaDetalhe={this.props.goToTelaDetalhe}
+                titulo={job.title}
+                descricao={job.description}
+                preco={job.price}
+              />
+            )
+          })}
+
+        </Lista>
 
         <Footer />
 
