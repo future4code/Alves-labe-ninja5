@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BuscaNome, DivFiltros, CampoInput, SelectOrdenar, OptionOrdenar, Body, Cards, Lista} from "./styled"
+import { Cifrao, Legend, FieldsetInput, SectionFiltro, SectionBuscar, BuscaNome, DivFiltros, CampoInput, SelectOrdenar, OptionOrdenar, Body, Cards, Lista } from "./styled"
 import BASE_URL from "../../constantes/BASE_URL"
 import axios from 'axios'
 
@@ -56,42 +56,51 @@ export default class TelaServicos extends Component {
           goToTelaInicial={this.props.goToTelaInicial}
           goToTelaCarrinho={this.props.goToTelaCarrinho}
         />
-
-        <DivFiltros>
+        <SectionBuscar>
           <BuscaNome
             type="text"
-            onChange={this.onPrecoMinimo}
-            value={this.state.precoMinimo}
+            onChange={this.onBuscaNome}
+            value={this.state.buscaNome}
             placeholder="Buscar"
           />
+        </SectionBuscar>
 
-          <fieldset>
-            <legend>Odenar por:</legend>
-            <SelectOrdenar>
-              <OptionOrdenar>Preço Crescente</OptionOrdenar>
-              <OptionOrdenar>Preço Decrescente</OptionOrdenar>
-              <OptionOrdenar>Título</OptionOrdenar>
-              <OptionOrdenar>Prazo</OptionOrdenar>
-            </SelectOrdenar>
-          </fieldset>
-          <fieldset>
-            <legend>Valor Mínimo</legend>
-            <CampoInput
-              type="number"
-              onChange={this.onPrecoMaximo}
-              value={this.state.precoMaximo}
-              placeholder="Valor Máximo"
-            />
-          </fieldset>
-          <fieldset>
-            <legend>Valor Máximo</legend>
-            <CampoInput
-              type="number"
-              onChange={this.onPrecoMinimo}
-              value={this.state.precoMinimo}
-              placeholder="Valor Mínimo"
-            />
-          </fieldset>
+        <DivFiltros>
+          <SectionFiltro>
+
+            <FieldsetInput>
+              <Legend>Ordenar por:</Legend>
+              <SelectOrdenar>
+                <OptionOrdenar>Preço Crescente</OptionOrdenar>
+                <OptionOrdenar>Preço Decrescente</OptionOrdenar>
+                <OptionOrdenar>Título</OptionOrdenar>
+                <OptionOrdenar>Prazo</OptionOrdenar>
+              </SelectOrdenar>
+            </FieldsetInput>
+
+            <FieldsetInput>
+              <Legend>Valor Mínimo</Legend>
+              <CampoInput
+                type="number"
+                onChange={this.onPrecoMaximo}
+                value={this.state.precoMaximo}
+              />
+            </FieldsetInput>
+
+            <FieldsetInput>
+              <Legend>Valor Máximo</Legend>
+              <Cifrao>
+                <p>R$</p>
+                <CampoInput
+                  type="number"
+                  onChange={this.onPrecoMinimo}
+                  value={this.state.precoMinimo}
+                />
+              </Cifrao>
+            </FieldsetInput>
+
+          </SectionFiltro>
+
         </DivFiltros>
 
         <Cards>
@@ -107,7 +116,7 @@ export default class TelaServicos extends Component {
           </Lista>
         </Cards>
 
-        <Footer/>
+        <Footer />
 
       </Body >
     )
