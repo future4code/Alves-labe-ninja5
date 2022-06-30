@@ -22,7 +22,7 @@ export default class Home extends React.Component {
       case "tela-cadastro":
         return <TelaCadastro
           goToTelaInicial={this.goToTelaInicial}
-          goToTelaCarrinho={this.goToTelaInicial}  
+          goToTelaCarrinho={this.goToTelaInicial}
         />
 
 
@@ -30,6 +30,7 @@ export default class Home extends React.Component {
         return <TelaServicos
           goToTelaInicial={this.goToTelaInicial}
           goToTelaCarrinho={this.goToTelaCarrinho}
+          goToTelaDetalhe={this.goToTelaDetalhe}
         />
 
       case "tela-detalhe":

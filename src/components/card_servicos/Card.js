@@ -18,7 +18,7 @@ export default class TelaServicos extends Component {
       <Titulo>{servico.titulo}</Titulo>
       <Prazo> {`Até ${servico.prazo} por`} <strong>{`R$ ${servico.preco}` }</strong> </Prazo>
       <LinhaBaixo>
-        <Botao>VER DETALHES</Botao>
+        <Botao onClick={this.props.goToTelaDetalhe}>VER DETALHES</Botao>
         <ImagemCarrinho src={img_carrinho}/>
       </LinhaBaixo>
       </Card>
