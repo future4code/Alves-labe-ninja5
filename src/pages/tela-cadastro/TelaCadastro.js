@@ -1,63 +1,18 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
-
-
-
-const Tudo = styled.div`
-display: grid;
-grid-template-rows: 60px 1fr 60px;
-width: 100vw;
-height: 100vh;
-
-`
-
-
-const ParteCentral = styled.div`
-display: flex;
-justify-content: center;
-`
-const Card = styled.section`
-display: block;
-background-color: #8878c7;
-justify-content: center;
-justify-items: center;
-align-items: center;
-width: 375px;
-margin-top: 15px;
-margin-bottom: 20px;
-border-radius: 20px;
-`
-const FormaDePagamento = styled.select`
-display: block;
-margin-bottom: 18px;
-margin-top: 18px;
-`
-
-const Botao = styled.button`
-background-color: #dbd6ee;
-font-size: 15px;
-display: block;
-`
-const Input = styled.input`
-margin-bottom: 18px;
-width: 60%;
-`
-const TituloCard = styled.h2`
-color: white;
-`
-const Form = styled.form`
-
-`
+import { BASE_URL } from "../../constantes/BASE_URL"
+import Header from "../../components/header/Header"
+import Footer from "../../components/footer/Footer"
+import * as C from "./styled"
 
 export class TelaCadastro extends Component {
+
   state = {
+    jobs: [],
     title: "",
     description: "",
     price: "",
-    paymentMethods: "",
+    paymentMethods: [],
     dueDate: "",
   }
 
@@ -70,40 +25,45 @@ export class TelaCadastro extends Component {
   chamarPrice = (event) => {
     this.setState({ price: event.target.value })
   }
+
   chamarPaymentMethods = (event) => {
-    this.setState({ title: event.target.value })
+    this.setState ({paymentMethods: [...this.state.paymentMethods, event.target.value]})
   }
+
   chamardueDate = (event) => {
     this.setState({ dueDate: event.target.value })
   }
 
-  fazerCadastrp = () => {
-    const url = "https://labeninjas.herokuapp.com/" //  Precisa completar lógica esperando a url e o authorization
-    const body = {
+  criarCadastro = () => {
+
+    const novoJob = {
+
       title: this.state.title,
       description: this.state.description,
-      price: this.state.price,
+      price: Number(this.state.price),
       paymentMethods: this.state.paymentMethods,
       dueDate: this.state.dueDate
     }
-    axios.post(url,body, {
-      headers: {
-        Authorization: ""
-  
+
+    axios.post(
+
+      `${BASE_URL}/jobs`, novoJob,
+      {
+        headers: {
+          Authorization: "e2190c39-7930-4db4-870b-bed0e5e4b88e"
+        }
       }
-  
-     })
-     .then ((res) => {
-      alert("Serviço cadrastado com sucesso!")
-      this.setState({title: "", description: "", price: "", paymentMethods: "",dueDate: "", }) // limpa os campos para poder cadrastrar outra pessoa depois
-     })
-  
-  
-     .catch ((err) => {
-      alert(err.response.data.message)
-  
-     })
-  
+    )
+      .then((res) => {
+        this.setState({ jobs: res.data })
+        alert("Serviço cadastrado com sucesso")
+      
+      })
+      .catch((erro) => {
+        console.log(erro.response.data);
+        console.log(this.state.paymentMethods)
+      });
+
 
     
   }
@@ -113,49 +73,68 @@ export class TelaCadastro extends Component {
 //Obs: A parte lógica está esperando autorização e os imputs e os valores.
 //Obs: O h2 tem que ser branco mas quanto estiliza ele fica estranho e junta tudo
 
+  };
 
   render() {
+
+    console.log(this.state.jobs)
+
     return (
-      <Tudo>
-        <Header 
-          goToTelaInicial={this.props.goToTelaInicial}
-          goToTelaCarrinho={this.props.goToTelaInicial}   
-        />
-        <ParteCentral>
-            <Card>
-            <TituloCard>Cadastrar serviço</TituloCard>
-            <Input
-              type="text"
-              placeholder={"Titulo"}
-                
-            >
-            </Input>
-            <Input
-              type="text"
+
+      <C.Tudo>
+
+        <Header />
+
+        <C.ParteCentral>
+          <C.Card>
+            <h2>Cadastrar serviço</h2>
+            
+            <C.Input
+              onChange={this.chamarTitle}
+              placeholder="Titulo"
+             >
+            </C.Input>
+            
+            <C.Input
+              onChange={this.chamarDescription}
               placeholder={"Descrição"}
             >
-            </Input>
-            <Input
-              type="number"
+            </C.Input>
+            
+            <C.Input
+              type='number'
+              onChange={this.chamarPrice}
               placeholder={"Preço"}
             >
-            </Input>
-            <Form>
+            </C.Input>
+            
+            <form>
               <label for="data-prazo"></label>
-              <input type="date" id="data-prazo" name='data-prazo'></input>
-            </Form> 
-            <FormaDePagamento>
-              <option>Cartão de crédito</option>
-              <option>Boleto</option>
-              <option>Pix</option>
-            </FormaDePagamento>
-            <Botao>cadastrar</Botao>
-           
-            </Card>
-        </ParteCentral>
-        < Footer/>
+              <input onChange={this.chamardueDate} type="date" id="data-prazo" name='data-prazo'></input>
+            </form>
 
-      </Tudo>
+            <form action="">
+              <input value="cartao-de-credito" type='checkbox' onChange={this.chamarPaymentMethods}></input>
+                <label for="cartao-de-credito">Cartão de crédito</label>
+
+
+              <input value="boleto" type='checkbox' onChange={this.chamarPaymentMethods}></input>
+                <label for="boleto">Boleto</label>
+              
+
+              <input value="pix" type='checkbox' onChange={this.chamarPaymentMethods}></input>
+                <label for="pix">Pix</label>
+            </form>
+
+            <C.Botao type='submit' onClick={this.criarCadastro}>cadastrar</C.Botao>
+            
+          </C.Card>
+        </C.ParteCentral>
+
+        <Footer />
+
+      </C.Tudo>
+      
     )
   }
 }

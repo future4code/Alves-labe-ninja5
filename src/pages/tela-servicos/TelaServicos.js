@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
-import { Cifrao, Legend, FieldsetInput, SectionFiltro, SectionBuscar, BuscaNome, DivFiltros, CampoInput, SelectOrdenar, OptionOrdenar, Body, Cards, Lista } from "./styled"
-import BASE_URL from "../../constantes/BASE_URL"
+import { InputsPai } from "./styled"
+import {BASE_URL} from "../../constantes/BASE_URL"
 import axios from 'axios'
-
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
-import Card from '../../components/card_servicos/Card';
 
 export default class TelaServicos extends Component {
 
@@ -43,7 +39,6 @@ export default class TelaServicos extends Component {
       .catch((err) => {
         console.log(err)
       })
-
   }
 
   render() {
@@ -56,6 +51,7 @@ export default class TelaServicos extends Component {
           goToTelaInicial={this.props.goToTelaInicial}
           goToTelaCarrinho={this.props.goToTelaCarrinho}
         />
+        
         <SectionBuscar>
           <BuscaNome
             type="text"
