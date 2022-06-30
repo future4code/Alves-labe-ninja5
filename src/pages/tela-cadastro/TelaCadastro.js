@@ -82,21 +82,18 @@ export class TelaCadastro extends Component {
 
       <C.Tudo>
 
-        <Header />
+        <Header
+        goToTelaInicial={this.props.goToTelaInicial}
+        goToTelaCarrinho={this.props.goToTelaCarrinho}
+        />
 
         <C.ParteCentral>
           <C.Card>
-            <h2>Cadastrar serviço</h2>
+            <C.TituloCadastro>Cadastrar serviço</C.TituloCadastro>
 
             <C.Input
               onChange={this.chamarTitle}
               placeholder="Titulo"
-            >
-            </C.Input>
-
-            <C.Input
-              onChange={this.chamarDescription}
-              placeholder={"Descrição"}
             >
             </C.Input>
 
@@ -107,10 +104,21 @@ export class TelaCadastro extends Component {
             >
             </C.Input>
 
+            <C.Textarea
+              onChange={this.chamarDescription}
+              placeholder={"Descrição"}
+              rows="4" 
+            >
+            </C.Textarea>
+            
+            <C.FacaIsso>Validade de serviço:</C.FacaIsso>
+
             <form>
               <label for="data-prazo"></label>
               <input onChange={this.chamardueDate} type="date" id="data-prazo" name='data-prazo'></input>
             </form>
+
+            <C.FacaIsso>Modo de pagamento:</C.FacaIsso>
 
             <form action="">
               <input value="cartao-de-credito" type='checkbox' onChange={this.chamarPaymentMethods}></input>
