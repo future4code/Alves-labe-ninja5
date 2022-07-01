@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Body, DivFiltros, SectionBuscar, BuscaNome, CampoInput, SelectOrdenar, OptionOrdenar, Lista, SectionFiltro, Legend, FieldsetInput, Cifrao } from "./styled"
-import { BASE_URL } from "../../constantes/BASE_URL"
-import axios from 'axios'
 import Header from '../../components/header/Header'
 import { Footer } from '../../components/footer/styled_footer'
 import Card from './../../components/card_servicos/Card'
@@ -12,8 +10,7 @@ export default class TelaServicos extends Component {
     precoMinimo: "",
     precoMaximo: "",
     buscaNome: "",
-    ordenacao: 1,
-    selecao: ""
+    ordenacao: "titulo",
   }
 
   onPrecoMinimo = (event) => {
@@ -32,38 +29,10 @@ export default class TelaServicos extends Component {
   }
 
   atualizaOrdenacao = (event) => {
-    // Number (event.target.value) === 1 && this.setState({ selecao: "crescente" })
-    // Number (event.target.value) === -1 && this.setState({ selecao: "decrescente" })
-    // event.target.value === "titulo" && this.setState({ selecao: "titulo" })
-    // event.target.value === "prazo" && this.setState({ selecao: "prazo" })
     this.setState({ ordenacao: event.target.value })
-    console.log(event.target.value)
-    
-    // if (event.target.value === 1 || event.target.value === - 1) {
-    // this.setState({ ordenacao: event.target.value })
-    // }
   }
 
-  // getAllJobs = () => {
-  //   axios.get(`${BASE_URL}/jobs`, {
-
-  //     headers: {
-  //       Authorization: "28d01bab-b426-4bdd-ba33-cf26427fc293"
-  //     }
-  //   })
-  //     .then((res) => {
-  //       console.log(res.data)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }
-
-
-
   render() {
-
-
     return (
 
       <Body>
@@ -88,11 +57,12 @@ export default class TelaServicos extends Component {
             <FieldsetInput>
               <Legend>Ordenar por:</Legend>
               <SelectOrdenar
+                name="sort"
                 value={this.state.ordenacao}
                 onChange={this.atualizaOrdenacao}
               >
-                <OptionOrdenar value={1}>Preço Crescente</OptionOrdenar>
-                <OptionOrdenar value={-1}>Preço Decrescente</OptionOrdenar>
+                <OptionOrdenar value={"precoCre"}>Preço Crescente</OptionOrdenar>
+                <OptionOrdenar value={"precoDec"}>Preço Decrescente</OptionOrdenar>
                 <OptionOrdenar value={"titulo"}>Título</OptionOrdenar>
                 <OptionOrdenar value={"prazo"}>Prazo</OptionOrdenar>
               </SelectOrdenar>
@@ -127,23 +97,25 @@ export default class TelaServicos extends Component {
         </DivFiltros>
 
         <Lista>
-
-          {this.props.listaJobs.filter((job) => {
+          {this.props.listaJobs.filter( job => {
             return this.state.precoMinimo === "" || job.price >= this.state.precoMinimo
-          }).filter((job) => {
+          }).filter( job => {
             return this.state.precoMaximo === "" || job.price <= this.state.precoMaximo
-          }).filter((job) => {
+          }).filter( job => {
             return job.title.toLowerCase().includes(this.state.buscaNome.toLowerCase())
-          }).sort((currentJob, nextJob) => {
-            if (this.state.ordenacao === "1" || this.state.ordenacao === "-1") {
-              console.log("Entrei no filtro crescente/decrescente")
-              return this.state.ordenacao * (currentJob.price - nextJob.price)
+          }).sort((trabalhoAtual, trabalhoProximo) => {
+            if (this.state.ordenacao === "precoCre") {
+              return (1) * (trabalhoAtual.price - trabalhoProximo.price)
+            } else if (this.state.ordenacao === "precoDec") {
+              return (-1) * (trabalhoAtual.price - trabalhoProximo.price)
             } else if (this.state.ordenacao === "prazo") {
-              return new Date(currentJob.dueDate).getTime() - new Date(nextJob.dueDate).getTime()
+              return (1) * (new Date(trabalhoAtual.dueDate).getTime() - new Date(trabalhoProximo.dueDate).getTime())
+            } else {
+              return (1) * trabalhoAtual.title.localeCompare(trabalhoProximo.title)
             }
-          }).map(job => {
+          }).map((job, indice) => {
             return (
-              <Card
+              <Card key={indice}
                 goToTelaDetalhe={this.props.goToTelaDetalhe}
                 titulo={job.title}
                 descricao={job.description}
@@ -154,7 +126,6 @@ export default class TelaServicos extends Component {
 
           })
           }
-
         </Lista>
 
         <Footer />
