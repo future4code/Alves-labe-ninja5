@@ -12,7 +12,8 @@ export default class TelaServicos extends Component {
     precoMinimo: "",
     precoMaximo: "",
     buscaNome: "",
-    ordenacao: 1
+    ordenacao: 1,
+    selecao: ""
   }
 
   onPrecoMinimo = (event) => {
@@ -31,7 +32,16 @@ export default class TelaServicos extends Component {
   }
 
   atualizaOrdenacao = (event) => {
+    // Number (event.target.value) === 1 && this.setState({ selecao: "crescente" })
+    // Number (event.target.value) === -1 && this.setState({ selecao: "decrescente" })
+    // event.target.value === "titulo" && this.setState({ selecao: "titulo" })
+    // event.target.value === "prazo" && this.setState({ selecao: "prazo" })
     this.setState({ ordenacao: event.target.value })
+    console.log(event.target.value)
+    
+    // if (event.target.value === 1 || event.target.value === - 1) {
+    // this.setState({ ordenacao: event.target.value })
+    // }
   }
 
   // getAllJobs = () => {
@@ -78,13 +88,13 @@ export default class TelaServicos extends Component {
             <FieldsetInput>
               <Legend>Ordenar por:</Legend>
               <SelectOrdenar
-                value={this.ordenacao}
+                value={this.state.ordenacao}
                 onChange={this.atualizaOrdenacao}
               >
                 <OptionOrdenar value={1}>Preço Crescente</OptionOrdenar>
                 <OptionOrdenar value={-1}>Preço Decrescente</OptionOrdenar>
-                <OptionOrdenar>Título</OptionOrdenar>
-                <OptionOrdenar>Prazo</OptionOrdenar>
+                <OptionOrdenar value={"titulo"}>Título</OptionOrdenar>
+                <OptionOrdenar value={"prazo"}>Prazo</OptionOrdenar>
               </SelectOrdenar>
             </FieldsetInput>
 
@@ -125,7 +135,12 @@ export default class TelaServicos extends Component {
           }).filter((job) => {
             return job.title.toLowerCase().includes(this.state.buscaNome.toLowerCase())
           }).sort((currentJob, nextJob) => {
-            return this.state.ordenacao * (currentJob.price - nextJob.price)
+            if (this.state.ordenacao === "1" || this.state.ordenacao === "-1") {
+              console.log("Entrei no filtro crescente/decrescente")
+              return this.state.ordenacao * (currentJob.price - nextJob.price)
+            } else if (this.state.ordenacao === "prazo") {
+              return new Date(currentJob.dueDate).getTime() - new Date(nextJob.dueDate).getTime()
+            }
           }).map(job => {
             return (
               <Card
@@ -133,6 +148,7 @@ export default class TelaServicos extends Component {
                 titulo={job.title}
                 descricao={job.description}
                 preco={job.price}
+                data={job.dueDate}
               />
             )
 
