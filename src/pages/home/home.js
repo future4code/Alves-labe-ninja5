@@ -11,7 +11,26 @@ export default class Home extends React.Component {
 
   state = {
     paginaAtual: "tela-inicial",
-    listaJobs: []
+    listaJobs: [],
+    carrinho: []
+  }
+
+  atualizaCarrinho = (id, titulo, preco) => {
+    const novoProduto = {
+      id: id,
+      titulo: titulo,
+      preco: preco
+    }
+    const novoCarrinho = [...this.state.carrinho, novoProduto]
+    this.setState({carrinho: novoCarrinho})
+  }
+
+  removerItem = (id) => {
+    const novoCarrinho = this.state.carrinho.filter( job => {
+      return job.id !== id
+    })
+
+    this.setState({carrinho: novoCarrinho})
   }
 
   pegaJobs = () =>{
@@ -57,6 +76,8 @@ export default class Home extends React.Component {
           goToTelaCarrinho={this.goToTelaCarrinho}
           goToTelaDetalhe={this.goToTelaDetalhe}
           listaJobs={this.state.listaJobs}
+
+          atualizaCarrinho={this.atualizaCarrinho}
         />
 
       case "tela-detalhe":
@@ -66,7 +87,12 @@ export default class Home extends React.Component {
         />
 
       case "tela-carrinho":
-        return <TelaCarrinho />
+        return <TelaCarrinho 
+          goToTelaInicial={this.goToTelaInicial}
+          goToTelaCarrinho={this.goToTelaCarrinho}
+          carrinho={this.state.carrinho}
+          removerItem={this.removerItem}
+        />
 
       default:
         return "Erro ao Encontrar pagina"
