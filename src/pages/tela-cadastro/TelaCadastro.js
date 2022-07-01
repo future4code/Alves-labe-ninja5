@@ -20,12 +20,6 @@ export class TelaCadastro extends Component {
     checkP:false
   }
 
- 
-
-
-
-
-
   chamarTitle = (event) => {
     this.setState({ title: event.target.value })
   }
