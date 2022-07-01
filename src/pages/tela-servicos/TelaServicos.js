@@ -121,6 +121,9 @@ export default class TelaServicos extends Component {
                 descricao={job.description}
                 preco={job.price}
                 data={job.dueDate}
+
+                id={job.id}
+                atualizaCarrinho={this.props.atualizaCarrinho}
               />
             )
 
