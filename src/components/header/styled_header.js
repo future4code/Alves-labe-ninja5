@@ -8,6 +8,9 @@ export const Header = styled.div`
   grid-column: 1/-1;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   background-color: #8878c7;
+  @media screen and (max-device-width : 480px){
+  width: 100vw;
+}
 `
 
 export const ImagemLogo = styled.img`

@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-
-
 export const Tudo = styled.div`
 display: grid;
 grid-template-rows: 60px 1fr 60px;
@@ -22,6 +20,11 @@ width: 35%;
 height: 400px;
 margin-top: 15px;
 border-radius: 20px;
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+@media screen and (max-device-width : 480px){
+  width: 90%;
+}
 `
 export const FormaDePagamento = styled.input`
 display: block;

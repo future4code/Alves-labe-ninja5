@@ -7,6 +7,10 @@ export const Footer = styled.div`
   grid-column: 1/-1;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   background-color: #8878c7;
+  @media screen and (max-device-width : 480px){
+  width: 100vw;
+  /* border: solid blue; */
+}
 `
 
 export const ImagemRedeSocial = styled.img`
@@ -15,6 +19,12 @@ export const ImagemRedeSocial = styled.img`
   :hover{
     box-shadow: 1px 1px 5px white;
     cursor:pointer
+  }
+  @media screen and (max-device-width : 480px){
+    display: flex;
+    flex-direction: row;
+    align-items: unset;
+    width: 100%;
   }
 `
 
