@@ -9,12 +9,21 @@ export const BuscaNome = styled.input`
   font-size: 22px;
   margin-right: 35px;
   border:solid 1px rgb(188,188,194);
-  
+  @media screen and (max-device-width : 480px){
+    margin: 50px;
+  }
 `
 export const DivFiltros = styled.div`
   display:flex;
   justify-content: center;
   margin: 20px;
+  @media screen and (max-device-width : 480px){
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 10px 0;
+  }
 `
 
 export const CampoInput = styled.input`
@@ -26,7 +35,6 @@ export const CampoInput = styled.input`
   border: none;
   margin-left: 10px;
   outline:0;
-
   `
 export const SelectOrdenar = styled.select`
   background: rgb(219,214,238);
@@ -34,13 +42,17 @@ export const SelectOrdenar = styled.select`
   width: 245px;
   border: none;
   font-size: 18px;
-
+  @media screen and (max-device-width : 480px){
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 export const OptionOrdenar = styled.option`
   height: 150;
   border: 0;
   font-size: 18px;
-  
 `
 
 export const Body = styled.div`
@@ -49,6 +61,12 @@ export const Body = styled.div`
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
+    @media screen and (max-device-width : 480px){
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const Lista = styled.div`
@@ -58,19 +76,28 @@ export const Lista = styled.div`
     row-gap: 20px;
     margin: 0 20px;
     box-sizing: border-box;
-    
+    @media screen and (max-device-width : 480px){
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
     `
 export const SectionFiltro = styled.section`
   margin-top:80px;
   display:flex;
   margin-left: 10px;
-
+  @media screen and (max-device-width : 480px){
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 export const SectionBuscar = styled.section`
   display:flex;
   justify-content: center;
   margin-top: 5px;
-
 `
 
 export const Legend = styled.legend`
@@ -91,4 +118,3 @@ export const Cifrao = styled.div`
  font-size: 22px;
 
 `
-
