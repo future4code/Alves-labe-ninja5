@@ -6,12 +6,23 @@ export const Body = styled.div`
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
+  @media screen and (max-device-width : 480px){
+    width: 100vw;
+    height: 100vh; 
+    border: 1px solid black;
+    box-sizing: content-box;
+  }
 `
 
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-device-width : 480px){
+    width: 100vw;
+    /* height: 100%;  */
+    border: 1px solid red;
+  }
 `
 
 export const Formulario = styled.div`
@@ -22,6 +33,10 @@ export const Formulario = styled.div`
   box-sizing: border-box;
   padding: 20px;
   border-radius: 15px;
+  @media screen and (max-device-width : 480px){
+    /* justify-content: center; */
+    align-items: center;
+  }
 `
 
 export const Titulo = styled.h2`
@@ -29,6 +44,9 @@ export const Titulo = styled.h2`
   margin: 0 0 20px 0;
   color: #8878c7;
   font-size: 38px;
+  @media screen and (max-device-width : 480px){
+    font-size: 30px;
+  }
 `
 
 export const MetPag = styled.div`
@@ -52,6 +70,13 @@ export const Metodo = styled.p`
   background-color: #9385cc;
   border-radius: 20px;
   padding: 5px 10px;
+  @media screen and (max-device-width : 480px){
+    /* width: 10%; */
+    /* height: 100%;  */
+    border: 1px solid green;
+    margin: 1px 1px 1px 1px;
+    font-size: 15px;
+  }
 `
 
 export const Prazo = styled.p`
@@ -95,6 +120,10 @@ export const Buttons = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin: 30px 0 0 0;
+  @media screen and (max-device-width : 480px){
+    width: 70vw;
+    border: 1px solid red;
+  }
 `
 
 export const ButtonAdicionar = styled.button`
