@@ -6,12 +6,6 @@ export const Body = styled.div`
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  @media screen and (max-device-width : 480px){
-    width: 100vw;
-    height: 100vh; 
-    border: 1px solid black;
-    box-sizing: content-box;
-  }
 `
 
 export const Container = styled.div`
@@ -20,8 +14,6 @@ export const Container = styled.div`
   align-items: center;
   @media screen and (max-device-width : 480px){
     width: 100vw;
-    /* height: 100%;  */
-    border: 1px solid red;
   }
 `
 
@@ -34,11 +26,11 @@ export const Formulario = styled.div`
   padding: 20px;
   border-radius: 15px;
   @media screen and (max-device-width : 480px){
-    /* justify-content: center; */
     align-items: center;
-  }
+    width: 100vw;
+    padding: 0;
+    }
 `
-
 export const Titulo = styled.h2`
   text-align: center;
   margin: 0 0 20px 0;
@@ -46,6 +38,7 @@ export const Titulo = styled.h2`
   font-size: 38px;
   @media screen and (max-device-width : 480px){
     font-size: 30px;
+    margin:5px 5px;
   }
 `
 
@@ -54,12 +47,14 @@ export const MetPag = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  /* text-align: center; */
-  margin: 10px 10px;
+  margin: 5px 5px;
 `
 
 export const Aceita = styled.p`
   margin: 10px 10px;
+  @media screen and (max-device-width : 480px){
+  margin-left: 0;
+  }
 `
 
 export const Metodo = styled.p`
@@ -68,12 +63,9 @@ export const Metodo = styled.p`
   text-align: center;
   margin: 10px 10px;
   background-color: #9385cc;
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 5px 10px;
   @media screen and (max-device-width : 480px){
-    /* width: 10%; */
-    /* height: 100%;  */
-    border: 1px solid green;
     margin: 1px 1px 1px 1px;
     font-size: 15px;
   }
@@ -88,20 +80,20 @@ export const Prazo = styled.p`
 export const Descricao = styled.p`
   font-size: 20px;
   text-align: center;
-  margin: 10px 0;
+  margin: 5px 5px;
 `
 
-export const NamePlaylist = styled.input`
-  font-size: 16px;
-  height: 30px;
-  margin: 0;
-    &:disabled {
-    color: black;
-    background: #e4e4e4;
-    border: none;
-    padding: 0 0 0 5px;
-  }
-`
+// export const NamePlaylist = styled.input`
+//   font-size: 16px;
+//   height: 30px;
+//   margin: 0;
+//     &:disabled {
+//     color: black;
+//     background: #e4e4e4;
+//     border: none;
+//     padding: 0 0 0 5px;
+//   }
+// `
 
 export const Input = styled.input`
   font-size: 16px;
@@ -122,7 +114,6 @@ export const Buttons = styled.div`
   margin: 30px 0 0 0;
   @media screen and (max-device-width : 480px){
     width: 70vw;
-    border: 1px solid red;
   }
 `
 

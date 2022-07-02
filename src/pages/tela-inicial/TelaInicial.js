@@ -7,7 +7,6 @@ export default class TelaInicial extends Component {
 
     state = {
         goToTelaCarrinho: this.props.goToTelaCarrinho
-
     }
 
     render() {
@@ -33,7 +32,7 @@ export default class TelaInicial extends Component {
                     </C.Container>
 
                 </C.Body>
-                {/* <Footer /> */}
+
             </>
         )
     }

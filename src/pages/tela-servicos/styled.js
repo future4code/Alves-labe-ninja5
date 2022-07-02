@@ -92,7 +92,6 @@ export const SectionFiltro = styled.section`
   margin-left: 10px;
   @media screen and (max-device-width : 480px){
     max-width: 100vw;
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
@@ -114,6 +113,9 @@ export const FieldsetInput = styled.fieldset`
   border:solid 1px rgb(188,188,194);
   width: 250px;
   border-radius: 10px;
+  @media screen and (max-device-width : 480px){
+    width: 280px;
+  }
 `
 
 export const Cifrao = styled.div`

@@ -4,7 +4,6 @@ import { BASE_URL } from "../../constantes/BASE_URL"
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 import * as C from "./styled"
-import { eventWrapper } from '@testing-library/user-event/dist/utils'
 
 export class TelaCadastro extends Component {
 
