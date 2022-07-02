@@ -12,29 +12,41 @@ export default class Home extends React.Component {
   state = {
     paginaAtual: "tela-inicial",
     listaJobs: [],
-    carrinho: []
+    carrinho: [],
+    servicoDetalhado: {}
   }
 
   atualizaCarrinho = (id, titulo, preco) => {
-    const novoProduto = {
-      id: id,
-      titulo: titulo,
-      preco: preco
+    let repetido = false;
+    for (let i=0 ; i<this.state.carrinho.length ; i++) {
+      if (this.state.carrinho[i].id === id) {
+        repetido = true;
+        break;
+      }
     }
-    const novoCarrinho = [...this.state.carrinho, novoProduto]
-    this.setState({carrinho: novoCarrinho})
+
+    if (!repetido) {
+      const novoProduto = {
+        id: id,
+        titulo: titulo,
+        preco: preco
+      }
+      const novoCarrinho = [...this.state.carrinho, novoProduto]
+      this.setState({carrinho: novoCarrinho})
+      alert('Item adicionado ao carrinho.')
+    } else {
+      alert('O item selecionado já está no carrinho.')
+    }
   }
 
   removerItem = (id) => {
     const novoCarrinho = this.state.carrinho.filter( job => {
       return job.id !== id
     })
-
     this.setState({carrinho: novoCarrinho})
   }
 
   pegaJobs = () =>{
-    // const url = 
     axios.get(`${BASE_URL}/jobs`, 
       {
         headers: {
@@ -42,14 +54,24 @@ export default class Home extends React.Component {
         }
     })
     .then((res)=>{
-      console.log("entrou em res")
-      // console.log(res.data.jobs)
-      console.log(typeof(res.data.jobs))
-      
       this.setState({listaJobs: res.data.jobs})
     })
     .catch((erro)=>{
-      console.log("entrou no erro")
+      console.log(erro)
+    })
+  }
+
+  detalharJob = (id) =>{
+    axios.get(`${BASE_URL}/jobs/${id}`, 
+      {
+        headers: {
+          Authorization: "e2190c39-7930-4db4-870b-bed0e5e4b88e"
+        }
+    })
+    .then((res)=>{
+      this.setState({servicoDetalhado: res.data, paginaAtual: "tela-detalhe"})
+    })
+    .catch((erro)=>{
       console.log(erro)
     })
   }
@@ -69,14 +91,13 @@ export default class Home extends React.Component {
           goToTelaCarrinho={this.goToTelaCarrinho}
         />
 
-
       case "tela-servicos":
         return <TelaServicos
           goToTelaInicial={this.goToTelaInicial}
           goToTelaCarrinho={this.goToTelaCarrinho}
           goToTelaDetalhe={this.goToTelaDetalhe}
           listaJobs={this.state.listaJobs}
-
+          detalharJob={this.detalharJob}
           atualizaCarrinho={this.atualizaCarrinho}
         />
 
@@ -84,12 +105,15 @@ export default class Home extends React.Component {
         return <TelaDetalhe
           goToTelaInicial={this.goToTelaInicial}
           goToTelaCarrinho={this.goToTelaCarrinho}
+          goToTelaServicos={this.goToTelaServicos}
+          servicoDetalhado={this.state.servicoDetalhado}
+          atualizaCarrinho={this.atualizaCarrinho}
         />
 
       case "tela-carrinho":
         return <TelaCarrinho 
           goToTelaInicial={this.goToTelaInicial}
-          goToTelaCarrinho={this.goToTelaCarrinho}
+          goToTelaServicos={this.goToTelaServicos}
           carrinho={this.state.carrinho}
           removerItem={this.removerItem}
         />
@@ -114,7 +138,7 @@ export default class Home extends React.Component {
   }
 
   goToTelaDetalhe = () => {
-    this.setState({ paginaAtual: "tela-detalhe" })
+    this.setState({ paginaAtual: "tela-detalhe"})
   }
 
   goToTelaCarrinho = () => {
