@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const BuscaNome = styled.input`
   background-color: rgb(219,214,238);
   height: 40px;
@@ -13,9 +12,11 @@ export const BuscaNome = styled.input`
     margin: 50px;
   }
 `
+
 export const DivFiltros = styled.div`
   display:flex;
   justify-content: center;
+  align-items:center;
   margin: 20px;
   @media screen and (max-device-width : 480px){
     max-width: 100vw;
@@ -36,6 +37,7 @@ export const CampoInput = styled.input`
   margin-left: 10px;
   outline:0;
   `
+
 export const SelectOrdenar = styled.select`
   background: rgb(219,214,238);
   height: 35px;
@@ -49,6 +51,7 @@ export const SelectOrdenar = styled.select`
     align-items: center;
   }
 `
+
 export const OptionOrdenar = styled.option`
   height: 150;
   border: 0;
@@ -81,11 +84,11 @@ export const Lista = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-    `
+    }
+  `
+
 export const SectionFiltro = styled.section`
-  margin-top:80px;
-  display:flex;
+  display: flex;
   margin-left: 10px;
   @media screen and (max-device-width : 480px){
     max-width: 100vw;
@@ -94,6 +97,7 @@ export const SectionFiltro = styled.section`
     align-items: center;
   }
 `
+
 export const SectionBuscar = styled.section`
   display:flex;
   justify-content: center;
@@ -101,20 +105,20 @@ export const SectionBuscar = styled.section`
 `
 
 export const Legend = styled.legend`
- font-size: 16px;
+  font-size: 16px;
 `
+
 export const FieldsetInput = styled.fieldset`
- font-size: 18px;
- margin: 0 20px 0 10px;
- border:solid 1px rgb(188,188,194);
- width: 250px;
- border-radius: 10px;
-
+  font-size: 18px;
+  margin: 0 20px 0 10px;
+  border:solid 1px rgb(188,188,194);
+  width: 250px;
+  border-radius: 10px;
 `
-export const Cifrao = styled.div`
- display: flex;
- align-items: center; 
- height:30px;
- font-size: 22px;
 
+export const Cifrao = styled.div`
+  display: flex;
+  align-items: center; 
+  height:30px;
+  font-size: 22px;
 `
