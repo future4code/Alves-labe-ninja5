@@ -9,6 +9,13 @@ export const Card = styled.div`
   padding: 5px;
   border-radius: 5px;
   background-color: #c3bbe3;
+  @media screen and (max-device-width : 480px){
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `
 export const Titulo = styled.p`
   font-size: 28px;
