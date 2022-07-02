@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Body, DivFiltros, SectionBuscar, BuscaNome, CampoInput, SelectOrdenar, OptionOrdenar, Lista, SectionFiltro, Legend, FieldsetInput, Cifrao } from "./styled"
 import Header from '../../components/header/Header'
-import { Footer } from '../../components/footer/styled_footer'
+import Footer from '../../components/footer/Footer'
 import Card from './../../components/card_servicos/Card'
 
 export default class TelaServicos extends Component {
@@ -116,13 +116,13 @@ export default class TelaServicos extends Component {
           }).map((job, indice) => {
             return (
               <Card key={indice}
-                goToTelaDetalhe={this.props.goToTelaDetalhe}
                 titulo={job.title}
                 descricao={job.description}
                 preco={job.price}
                 data={job.dueDate}
-
                 id={job.id}
+
+                detalharJob={this.props.detalharJob}
                 atualizaCarrinho={this.props.atualizaCarrinho}
               />
             )

@@ -1,7 +1,7 @@
 import React from "react";
 import * as C from "./styled"
 
-import Header from '../../components/header/Header';
+import Header from './Header_carrinho';
 import Footer from '../../components/footer/Footer';
 import img_lixeira from './../../assets/img/lixeira.png';
 
@@ -24,7 +24,7 @@ export default class TelaCarrinho extends React.Component {
 
           <Header 
             goToTelaInicial={this.props.goToTelaInicial}
-            goToTelaCarrinho={this.props.goToTelaCarrinho}
+            goToTelaServicos={this.props.goToTelaServicos}
           />
 
           {listaCarrinho.length !== 0 ?

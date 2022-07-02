@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import {Body, Container, Label, Titulo, Buttons, Formulario, ButtonAdicionar, ButtonBack,
+import {Body, Container, Titulo, Buttons, Formulario, ButtonAdicionar, ButtonBack,
         ConteudoAddCarrinho, ImagemAddCarrinho, TextoAddCarrinho, ConteudoVoltar, 
-        ImagemSetaEsquerda, TextoVoltar } from './styled'
+        ImagemSetaEsquerda, TextoVoltar, Prazo, MetPag, Descricao, Metodo, Aceita } from './styled'
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import add_carrinho from './../../assets/img/adicionar_ao_carrinho.png';
 import seta_esquerda from './../../assets/img/seta_esquerda.png';
 
 export default class Teladetalhes extends Component {
+  
   render() {
     return (
       <Body>
@@ -19,25 +20,30 @@ export default class Teladetalhes extends Component {
 
         <Container>
           <Formulario>
-            <Titulo>Detalhes do produto:</Titulo>
+            <Titulo>{this.props.servicoDetalhado.title}</Titulo>
 
-            <Label>Título:</Label>
+            <MetPag>
+              <Aceita>Aceita:</Aceita> 
+              {this.props.servicoDetalhado.paymentMethods.map( (met,ind) => {
+                return <Metodo>
+                  {this.props.servicoDetalhado.paymentMethods[ind]}
+                </Metodo>
+              })}
+            </MetPag>
 
-            <Label>Prazo:</Label>
+            <Prazo>{`Até ${this.props.servicoDetalhado.dueDate.split('T')[0]} por`} <strong>{`R$ ${this.props.servicoDetalhado.price}` }</strong></Prazo>
 
-            <Label>Preço:</Label>
-
-            <Label>Descrição:</Label>
+            <Descricao>{this.props.servicoDetalhado.description}</Descricao>
 
             <Buttons>
               <ButtonAdicionar>
                   <ConteudoAddCarrinho>
                     <ImagemAddCarrinho src={add_carrinho}/>
-                    <TextoAddCarrinho>ADICIONAR AO CARRINHO</TextoAddCarrinho>
+                    <TextoAddCarrinho onClick={()=>this.props.atualizaCarrinho(this.props.servicoDetalhado.id, this.props.servicoDetalhado.title, this.props.servicoDetalhado.price)}>ADICIONAR AO CARRINHO</TextoAddCarrinho>
                   </ConteudoAddCarrinho>
               </ButtonAdicionar>
               <ButtonBack>
-                  <ConteudoVoltar>
+                  <ConteudoVoltar onClick={this.props.goToTelaServicos}>
                     <ImagemSetaEsquerda src={seta_esquerda}/>
                     <TextoVoltar>VOLTAR</TextoVoltar>
                   </ConteudoVoltar>
