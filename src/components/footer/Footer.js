@@ -11,7 +11,7 @@ export default class Header_ extends Component {
     return(
       <Footer>
       <TextoEsquerda>
-        LabeNinjas
+      ©2012 - 2022, LabeNinjas Serviços de Internet. CNPJ 00.007.813/0001-51
       </TextoEsquerda>
 
       <TextoCentral>

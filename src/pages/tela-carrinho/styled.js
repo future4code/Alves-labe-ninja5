@@ -6,6 +6,7 @@ export const Body = styled.div`
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
+  box-shadow: 0.5px 0.5px 3px gray;
 `
 
 export const Lista = styled.div`

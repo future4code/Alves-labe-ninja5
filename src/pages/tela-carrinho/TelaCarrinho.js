@@ -14,38 +14,38 @@ export default class TelaCarrinho extends React.Component {
         <C.Lista>
           <C.Titulo>{`${job.titulo}`}</C.Titulo>
           <C.Preco>{`R$: ${job.preco.toFixed(2)}`}</C.Preco>
-          <C.ImagemLixeira onClick={()=>this.props.removerItem(job.id)} src={img_lixeira} />
+          <C.ImagemLixeira onClick={() => this.props.removerItem(job.id)} src={img_lixeira} />
         </C.Lista>
       )
     })
     return (
-      <div>
-        <C.Body>
 
-          <Header 
-            goToTelaInicial={this.props.goToTelaInicial}
-            goToTelaServicos={this.props.goToTelaServicos}
-          />
+      <C.Body>
 
-          {listaCarrinho.length !== 0 ?
-            <C.ConjuntoDoCarrinho>
-              <>
-                {listaCarrinho}
-              </>
-              <C.UltimaLinha>
-                <C.ValorTotal>Total R$: {soma.toFixed(2)} </C.ValorTotal>
-                <C.BotaoContratar>Contratar serviços</C.BotaoContratar>
-              </C.UltimaLinha>
-            </C.ConjuntoDoCarrinho>
+        <Header
+          goToTelaInicial={this.props.goToTelaInicial}
+          goToTelaServicos={this.props.goToTelaServicos}
+        />
+
+        {listaCarrinho.length !== 0 ?
+          <C.ConjuntoDoCarrinho>
+            <>
+              {listaCarrinho}
+            </>
+            <C.UltimaLinha>
+              <C.ValorTotal>Total R$: {soma.toFixed(2)} </C.ValorTotal>
+              <C.BotaoContratar>Contratar serviços</C.BotaoContratar>
+            </C.UltimaLinha>
+          </C.ConjuntoDoCarrinho>
           :
-            <C.ConjuntoDoCarrinho>
-              <C.CarrinhoVazio>Seu carrinho está vazio!</C.CarrinhoVazio>
-            </C.ConjuntoDoCarrinho>}
+          <C.ConjuntoDoCarrinho>
+            <C.CarrinhoVazio>Seu carrinho está vazio!</C.CarrinhoVazio>
+          </C.ConjuntoDoCarrinho>}
 
-          <Footer />
+        <Footer />
 
-        </C.Body>
-      </div>
+      </C.Body>
+      
     )
   }
 }
