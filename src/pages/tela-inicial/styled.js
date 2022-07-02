@@ -43,7 +43,7 @@ export const ContainerTexto = styled.div `
     width:30vw;
     margin: 10px 20px;
 
-    @media (max-width: 1000px){
+    @media screen and (max-device-width : 480px){
     width:40vw;
     }
 `;
@@ -53,13 +53,16 @@ export const Titulo = styled.h1 `
     line-height: 35px;
     font-weight:bold;
     color: #8878c7;
+    @media screen and (max-device-width : 480px){
+    font-size: 24px;
+}
 `;
 
 export const ContainerImagem = styled.img `
     display:inline;
     margin: 10px;
 
-    @media (max-width: 1000px){
-    width:50vw;
+    @media screen and (max-device-width : 480px){
+    width:40vw;
 }
 `;

@@ -18,6 +18,10 @@ export const Lista = styled.div`
   border-radius: 5px;
   background-color: #b7aedd;
   box-shadow: 0.5px 0.5px 3px gray;
+  @media screen and (max-device-width : 480px){
+  width: 90%;
+  margin: 5px;
+  }
 `
 
 export const Titulo = styled.p`
@@ -48,6 +52,10 @@ export const ConjuntoDoCarrinho = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
+  @media screen and (max-device-width : 480px){
+  width: 100%;
+  padding-left: 0;
+}
 `
 
 export const ConjuntoDeItens = styled.div`
@@ -71,6 +79,9 @@ export const UltimaLinha = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 700px;
+  @media screen and (max-device-width : 480px){
+  width: 90%;
+  }
 `
 export const ValorTotal = styled.p`
   font-size: 26px;
