@@ -9,7 +9,7 @@ export const BuscaNome = styled.input`
   margin-right: 35px;
   border:solid 1px rgb(188,188,194);
   @media screen and (max-device-width : 480px){
-    margin: 50px;
+    margin: 10px;
   }
 `
 
