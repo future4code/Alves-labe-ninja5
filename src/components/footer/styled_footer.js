@@ -6,6 +6,8 @@ export const Footer = styled.div`
   align-items: center;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   background-color: #8878c7;
+  box-sizing: border-box;
+  width: 100vw;
   @media screen and (max-device-width : 480px){
     width: 100vw;
     height: 90px;

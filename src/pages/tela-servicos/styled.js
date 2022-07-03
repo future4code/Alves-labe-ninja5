@@ -1,5 +1,19 @@
 import styled from "styled-components";
 
+export const Body = styled.div`
+  display: grid;
+  grid-template-rows: 60px 30px 200px 1fr 60px;
+  min-width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  border: solid 2px red;
+  @media screen and (max-device-width : 480px){
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+`
+
 export const BuscaNome = styled.input`
   background-color: rgb(219,214,238);
   height: 40px;
@@ -58,34 +72,21 @@ export const OptionOrdenar = styled.option`
   font-size: 18px;
 `
 
-export const Body = styled.div`
-    display: grid;
-    grid-template-rows: 60px 30px 200px 1fr 60px;
-    width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
-    @media screen and (max-device-width : 480px){
-    max-width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+export const Lista = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
+  margin: 20px 20px;
+  box-sizing: border-box;
+  border: solid 2px red;
+  @media screen and (max-device-width : 480px){
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   }
 `
-
-export const Lista = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 20px;
-    row-gap: 20px;
-    margin: 0 20px;
-    box-sizing: border-box;
-    @media screen and (max-device-width : 480px){
-    max-width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
-  `
 
 export const SectionFiltro = styled.section`
   display: flex;
