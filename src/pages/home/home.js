@@ -8,13 +8,25 @@ import axios from "axios";
 import { BASE_URL } from "../../constantes/BASE_URL";
 
 export default class Home extends React.Component {
-
   state = {
     paginaAtual: "tela-inicial",
     listaJobs: [],
     carrinho: [],
     servicoDetalhado: {}
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.carrinho === prevState.carrinho) return;
+
+    localStorage.setItem('carrinho', JSON.stringify(this.state.carrinho))
+  };
+
+  componentDidMount() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho'));
+
+    if (!carrinho) return;
+    this.setState({carrinho});
+  };
 
   atualizaCarrinho = (id, titulo, preco) => {
     let repetido = false;
