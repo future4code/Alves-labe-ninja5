@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Body = styled.div`
   display: grid;
   grid-template-rows: 60px 30px 200px 1fr 60px;
-  min-width: 100vw;
+  /* min-width: 100vw; */
+  min-width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
-  border: solid 2px red;
   @media screen and (max-device-width : 480px){
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@ export const Lista = styled.div`
   row-gap: 20px;
   margin: 20px 20px;
   box-sizing: border-box;
-  border: solid 2px red;
+  /* border: solid 2px red; */
   @media screen and (max-device-width : 480px){
   max-width: 100vw;
   display: flex;

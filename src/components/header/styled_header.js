@@ -4,15 +4,15 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: 60px;
-  border: solid 2px red;
   box-sizing: border-box;
-  grid-column: 1/-1;
+  /* grid-column: 1/-1; */
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   background-color: #8878c7;
   @media screen and (max-device-width : 480px){
   width: 100vw;
-}
+  }
 `
 
 export const ImagemLogo = styled.img`
