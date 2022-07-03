@@ -40,10 +40,16 @@ export const ImagemLixeira = styled.img`
   width: 25px;
   height: 25px;
   margin: 0 10px 0 0;
+  padding: 10px;
   flex-basis: 3%;
+
   &:hover {
-    background-color: #6d5cad;
+    transition: background-color 1s;
+    background-color: #cfc9e8;
     cursor: pointer;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+    padding: 10px;
   }
 `
 
@@ -67,6 +73,7 @@ export const ConjuntoDeItens = styled.div`
       margin: 10px 0px;
   }
 `
+
 export const Carrinho = styled.div`
   display: flex;
   align-items: center;
@@ -75,6 +82,7 @@ export const Carrinho = styled.div`
       margin: 10px 0px;
   }
 `
+
 export const UltimaLinha = styled.div`
   display: flex;
   justify-content: space-between;
@@ -84,9 +92,11 @@ export const UltimaLinha = styled.div`
   width: 90%;
   }
 `
+
 export const ValorTotal = styled.p`
   font-size: 26px;
 `
+
 export const BotaoContratar = styled.button`
   font-size: 18px;
   height: 40px;
@@ -100,6 +110,7 @@ export const BotaoContratar = styled.button`
     cursor: pointer;
   }
 `
+
 export const CarrinhoVazio = styled.p`
   text-align: center;
   color: #8878c7;

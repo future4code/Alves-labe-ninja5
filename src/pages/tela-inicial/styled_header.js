@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Header = styled.div`
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   height: 60px;
   grid-column: 1/-1;
@@ -21,12 +20,7 @@ export const ImagemLogo = styled.img`
 export const NomeLogo = styled.h2 `
   color: #dbd6ee;
   margin-left: 8px;
+  &:hover{
+    cursor:pointer;
+  }
 `
-
-// export const ImagemCarrinho = styled.img`
-//   width: 30px;
-//   margin: 0px 20px 0px 0px;
-//   &:hover{
-//     cursor:pointer;
-//   }
-// `

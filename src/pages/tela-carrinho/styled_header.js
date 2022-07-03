@@ -18,7 +18,20 @@ export const ImagemLogo = styled.img`
   }
 `
 
-export const ImagemCarrinho = styled.img`
+export const ParteEsquerda = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const NomeLogo = styled.h2 `
+  color: #dbd6ee;
+  margin-left: 8px;
+  &:hover{
+    cursor:pointer;
+  }
+`
+
+export const ImagemVoltar = styled.img`
   width: 30px;
   margin: 0px 20px 0px 0px;
   &:hover{

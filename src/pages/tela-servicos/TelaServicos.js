@@ -14,17 +14,14 @@ export default class TelaServicos extends Component {
   }
 
   onPrecoMinimo = (event) => {
-    console.log("entrou preco precoMinimo")
     this.setState({ precoMinimo: event.target.value })
   }
 
   onPrecoMaximo = (event) => {
-    console.log("entrou preco precoMaximo")
     this.setState({ precoMaximo: event.target.value })
   }
 
   onBuscaNome = (event) => {
-    console.log("entrou preco buscaNome")
     this.setState({ buscaNome: event.target.value })
   }
 

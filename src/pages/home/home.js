@@ -73,7 +73,7 @@ export default class Home extends React.Component {
       this.setState({listaJobs: res.data.jobs})
     })
     .catch((erro)=>{
-      console.log(erro)
+      alert('Ocorreu um erro ao carregar os serviços')
     })
   }
 
@@ -88,7 +88,7 @@ export default class Home extends React.Component {
       this.setState({servicoDetalhado: res.data, paginaAtual: "tela-detalhe"})
     })
     .catch((erro)=>{
-      console.log(erro)
+      alert('Ocorreu um erro ao carregar os dados do serviço selecionado')
     })
   }
   
@@ -163,15 +163,10 @@ export default class Home extends React.Component {
   }
 
   render() {
-
     return (
-
       <div>
-
         {this.procuraPagina()}
       </div>
     );
-
   }
-
 }
