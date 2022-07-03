@@ -34,7 +34,7 @@ export default class TelaCarrinho extends React.Component {
             </>
             <C.UltimaLinha>
               <C.ValorTotal>Total R$: {soma.toFixed(2)} </C.ValorTotal>
-              <C.BotaoContratar>Contratar serviços</C.BotaoContratar>
+              <C.BotaoContratar onClick={this.props.contratarServico}>Contratar serviços</C.BotaoContratar>
             </C.UltimaLinha>
           </C.ConjuntoDoCarrinho>
           :
