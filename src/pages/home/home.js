@@ -28,6 +28,10 @@ export default class Home extends React.Component {
     this.setState({carrinho});
   };
 
+  contratarServico = () => {
+    alert('Obrigado(a) por contratar os serviços');
+  }
+
   atualizaCarrinho = (id, titulo, preco) => {
     let repetido = false;
     for (let i=0 ; i<this.state.carrinho.length ; i++) {
@@ -128,6 +132,7 @@ export default class Home extends React.Component {
           goToTelaServicos={this.goToTelaServicos}
           carrinho={this.state.carrinho}
           removerItem={this.removerItem}
+          contratarServico={this.contratarServico}
         />
 
       default:
