@@ -13,11 +13,13 @@ export const Body = styled.div`
   align-items: center;
   }
 `
+
 export const SectionBuscar = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
 `
+
 export const BuscaNome = styled.input`
   height: 40px;
   width: 300px;
@@ -26,10 +28,15 @@ export const BuscaNome = styled.input`
   border: solid 1px rgb(188,188,194);
   border-radius: 10px;
   background-color: rgb(219,214,238);
+  &:focus {
+    border: solid 1px #8878c7;
+    outline: 0;
+  }
   @media screen and (max-device-width : 480px){
     margin: 10px;
   }
 `
+
 export const DivFiltros = styled.div`
   display:flex;
   justify-content: center;
@@ -42,6 +49,7 @@ export const DivFiltros = styled.div`
     margin: 0 0 10px 0;
   }
 `
+
 export const SectionFiltro = styled.section`
   display: flex;
   justify-content: center;
@@ -52,6 +60,7 @@ export const SectionFiltro = styled.section`
     align-items: center;
   }
 `
+
 export const FieldsetInput = styled.fieldset`
   font-size: 18px;
   width: 250px;
@@ -62,12 +71,14 @@ export const FieldsetInput = styled.fieldset`
     width: 280px;
   }
 `
+
 export const Cifrao = styled.div`
   display: flex;
   align-items: center; 
   height: 30px;
   font-size: 22px;
 `
+
 export const CampoInput = styled.input`
   background-color: rgb(219,214,238);
   height: 30px;
@@ -77,6 +88,7 @@ export const CampoInput = styled.input`
   border: none;
   outline:0;
 `
+
 export const SelectOrdenar = styled.select`
   background: rgb(219,214,238);
   height: 35px;
@@ -90,10 +102,12 @@ export const SelectOrdenar = styled.select`
     align-items: center;
   }
 `
+
 export const OptionOrdenar = styled.option`
   border: 0;
   font-size: 18px;
 `
+
 export const Lista = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -108,6 +122,7 @@ export const Lista = styled.div`
   align-items: center;
   }
 `
+
 export const Legend = styled.legend`
   font-size: 16px;
 `

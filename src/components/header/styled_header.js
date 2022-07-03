@@ -15,6 +15,19 @@ export const Header = styled.div`
   }
 `
 
+export const ParteEsquerda = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const NomeLogo = styled.h2 `
+  color: #dbd6ee;
+  margin-left: 8px;
+  &:hover{
+    cursor:pointer;
+  }
+`
+
 export const ImagemLogo = styled.img`
   width: 30px;
   margin: 0px 0px 0px 20px;
@@ -22,7 +35,6 @@ export const ImagemLogo = styled.img`
     cursor:pointer;
   }
 `
-
 export const ImagemCarrinho = styled.img`
   width: 30px;
   margin: 0px 20px 0px 0px;

@@ -83,18 +83,6 @@ export const Descricao = styled.p`
   margin: 5px 5px;
 `
 
-// export const NamePlaylist = styled.input`
-//   font-size: 16px;
-//   height: 30px;
-//   margin: 0;
-//     &:disabled {
-//     color: black;
-//     background: #e4e4e4;
-//     border: none;
-//     padding: 0 0 0 5px;
-//   }
-// `
-
 export const Input = styled.input`
   font-size: 16px;
   height: 30px;
