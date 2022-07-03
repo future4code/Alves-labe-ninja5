@@ -7,13 +7,13 @@ export const Footer = styled.div`
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   background-color: #8878c7;
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   @media screen and (max-device-width : 480px){
     width: 100vw;
     height: 90px;
     flex-direction: column;
     font-size: 14px;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
   }
 `
 export const ImagemRedeSocial = styled.img`
