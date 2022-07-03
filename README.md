@@ -2,11 +2,11 @@
 Site Marketplace LabeNinjas
 
 # Link do Surge:
-https://labeninjas-alves.surge.sh/
+https://labeninjas5-alves.surge.sh/
 
 # Descrição:
-O site LabeNinjas é um Marketplace que gerencia a maior plataforma online para conectar clientes a prestadores de serviços por todo país. Com as opções de filtragem por valor mínimo e máximo, além de filtragem por nome.
-O site possui também a opção de adicionar o serviço ao carrinho de compras, onde é possível excluir os itens e também é apresentado o valor total destes.
+O site LabeNinjas é um Marketplace que gerencia a maior plataforma online para conectar clientes a prestadores de serviços por todo país. A plataforma possui as opções de filtragem dos serviços por valor mínimo e máximo, além de filtragem por nome. Também é possível fazer a ordenação dos serviços por preços em ordem crescente, decrescente, título e prazo. 
+O site possui também a opção de adicionar o serviço ao carrinho de compras, onde é possível excluir os itens e também é apresentado o valor total destes. Os prestadores de serviço podem cadastrar seus serviços na plataforma, informando para tal: Título, Descrição, Preço, Validade do serviço e Método de pagamento (podendo selecionar quantas opções quiser entre Cartão de Crédito, Cartão de Débito, Pix, Paypal e Boleto).
 
 # Tecnologias utilizadas:
 <div>
@@ -18,6 +18,7 @@ O site possui também a opção de adicionar o serviço ao carrinho de compras, 
 <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
 <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
 <img src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white">
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
 </div>
 
 # Autores:
@@ -29,13 +30,13 @@ Michelle da Rosa Machado.
   
 
 # Imagens:
-#####Tela inicial:
+####Tela inicial:
 <img src="src\assets\img\home.png"/>
-#####Tela contratar serviço:
+####Tela contratar serviço:
 <img src="src\assets\img\contratar.png"/>
-#####Tela detalhes do serviço:
+####Tela detalhes do serviço:
 <img src="src\assets\img\detalhes.png"/>
-#####Tela cadastrar serviço:
+####Tela cadastrar serviço:
 <img src="src\assets\img\cadastrar.png"/>
-#####Tela carrinho:
+####Tela carrinho:
 <img src="src\assets\img\carrinho.png"/>
