@@ -6,8 +6,8 @@ import {
 } from './styled'
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
-import add_carrinho from './../../assets/img/adicionar_ao_carrinho.png';
-import seta_esquerda from './../../assets/img/seta_esquerda.png';
+import add_carrinho from './../../assets/img/img_tela_detalhe/adicionar_ao_carrinho.png';
+import seta_esquerda from './../../assets/img/img_tela_detalhe/seta_esquerda.png';
 
 export default class Teladetalhes extends Component {
 

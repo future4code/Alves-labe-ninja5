@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Card, Titulo, Prazo, LinhaBaixo, Botao, ImagemCarrinho} from "./styled"
 
-import img_add_carrinho from './../../assets/img/adicionar_ao_carrinho.png';
+import img_add_carrinho from './../../assets/img/img_card/adicionar_ao_carrinho.png';
 
 export default class TelaServicos extends Component {
   render() {
