@@ -30,15 +30,14 @@ Olavo Marques do Nascimento;
 Márleo Piber da Rosa;
 Michelle da Rosa Machado.
   
-
 # Imagens:
 ####Tela inicial:
-<img src="src\assets\img\home.png"/>
+<img src="src/assets/img/img_readme/home.png"/>
 ####Tela contratar serviço:
-<img src="src\assets\img\contratar.png"/>
+<img src="src/assets/img/img_readme/contratar.png"/>
 ####Tela detalhes do serviço:
-<img src="src\assets\img\detalhes.png"/>
+<img src="src/assets/img/img_readme/detalhes.png"/>
 ####Tela cadastrar serviço:
-<img src="src\assets\img\cadastrar.png"/>
+<img src="src/assets/img/img_readme/cadastrar.png"/>
 ####Tela carrinho:
-<img src="src\assets\img\carrinho.png"/>
+<img src="src/assets/img/img_readme/carrinho.png"/>

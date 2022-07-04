@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import HeaderInicial from './HeaderInicial'
-import Imagem from "../../assets/img/monitoramento.png"
+import Imagem from "../../assets/img/img_tela_inicial/monitoramento.png"
 import * as C from "./styled"
 
 export default class TelaInicial extends Component {

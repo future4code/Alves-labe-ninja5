@@ -3,7 +3,7 @@ import * as C from "./styled"
 
 import Header from './Header_carrinho';
 import Footer from '../../components/footer/Footer';
-import img_lixeira from './../../assets/img/lixeira.png';
+import img_lixeira from './../../assets/img/img_tela_carrinho/lixeira.png';
 
 export default class TelaCarrinho extends React.Component {
   render() {
@@ -19,7 +19,6 @@ export default class TelaCarrinho extends React.Component {
       )
     })
     return (
-
       <C.Body>
 
         <Header
@@ -45,7 +44,6 @@ export default class TelaCarrinho extends React.Component {
         <Footer />
 
       </C.Body>
-      
     )
   }
 }
